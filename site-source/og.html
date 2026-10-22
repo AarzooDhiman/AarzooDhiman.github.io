@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>og</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(../assets/fonts/bricolage-grotesque.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%}
+@font-face{font-family:"Instrument Sans";src:url(../assets/fonts/instrument-sans.woff2) format("woff2");font-weight:400 700}
+html,body{margin:0;background:#0c0d0c}
+.og{position:relative;width:1200px;height:630px;overflow:hidden;color:#f1eee6;font-family:"Instrument Sans",sans-serif}
+canvas{position:absolute;inset:0}
+.t{position:absolute;left:72px;right:72px;bottom:64px}
+h1{margin:0;font-family:"Bricolage Grotesque";font-weight:800;font-variation-settings:"opsz" 96;font-size:134px;letter-spacing:-0.045em;line-height:.9;white-space:nowrap}
+p{margin:26px 0 0;font-family:"Bricolage Grotesque";font-weight:650;font-size:42px;letter-spacing:-0.02em;line-height:1.1}
+p b{color:#ff5b2e;font-weight:760}
+small{display:block;margin-top:18px;font-size:22px;color:#a7a49b}
+</style>
+<div class="og" id="og"><canvas id="c" width="1200" height="630"></canvas>
+<div class="t" id="t"><h1>Dr Aarzoo Dhiman</h1><p>I turn what people write and say into <b>evidence</b>.</p><small>Health NLP research scientist · aarzoodhiman.github.io</small></div></div>
+<script>
+document.fonts.ready.then(()=>{
+  const c=document.getElementById('c').getContext('2d'), r=document.getElementById('t').getBoundingClientRect(), PAD=28;
+  let s=7; const rnd=()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296};
+  for(let i=0;i<2600;i++){const x=rnd()*1200,y=rnd()*630;
+    if(x>r.left-PAD&&x<r.right+PAD&&y>r.top-PAD&&y<r.bottom+PAD)continue;
+    c.fillStyle=i%9===0?'rgba(255,91,46,.8)':'rgba(241,238,230,.28)';const z=1+rnd()*2;c.fillRect(x,y,z,z)}
+  document.body.dataset.ready=1;
+});
+</script>

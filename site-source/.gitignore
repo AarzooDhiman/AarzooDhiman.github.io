@@ -1,0 +1,8 @@
+node_modules/
+map-sources/
+# private notes and raw photos stay local (CV_FACTS.md contains a phone number)
+CV_FACTS.md
+PROMPT_V3.md
+FACT_AUDIT.md
+photos/*
+!photos/README.md

@@ -1,0 +1,20 @@
+{
+ "iit-roorkee": {
+  "h": 600
+ },
+ "kdd-2018-london": {
+  "h": 400
+ },
+ "kurukshetra-university": {
+  "h": 500
+ },
+ "nit-kurukshetra": {
+  "h": 536
+ },
+ "ucl": {
+  "h": 324
+ },
+ "university-of-hull": {
+  "h": 480
+ }
+}

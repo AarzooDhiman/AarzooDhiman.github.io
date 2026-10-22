@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aarzoo Dhiman · Health NLP Research Scientist</title>
+<meta name="description" content="Dr Aarzoo Dhiman builds NLP and LLM systems for health: COVID-19 household transmission from 107.9M posts (npj Digital Medicine), and an on-device AI system for NHS breast cancer team meetings. PhD IIT Roorkee, postdoc UCL, moving to London.">
+<meta name="theme-color" content="#ebe5e3">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aarzoo Dhiman · Health NLP Research Scientist">
+<meta property="og:description" content="NLP and LLM systems that turn messy human language into evidence health services can use. Moving to London.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aarzoo Dhiman",
+  "honorificPrefix": "Dr",
+  "description": "Health NLP research scientist",
+  "jobTitle": "Teaching Fellow",
+  "worksFor": {"@type": "CollegeOrUniversity", "name": "University of Hull"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Roorkee"},
+    {"@type": "CollegeOrUniversity", "name": "University College London"}
+  ],
+  "knowsAbout": ["Natural language processing", "Large language models", "Retrieval-augmented generation", "Clinical NLP", "Digital epidemiology"],
+  "email": "mailto:aarzoodhiman@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/aarzoo-dhiman-0133ba158/",
+    "https://scholar.google.com/citations?user=WH9EF-MAAAAJ",
+    "https://github.com/AarzooDhiman",
+    "https://orcid.org/0000-0002-2447-2745"
+  ]
+}
+</script>
+<script>document.documentElement.classList.add('js')</script>
+<style>
+@font-face{font-family:"Imbue";src:url(data:font/woff2;base64,__IMBUE__) format("woff2-variations"),url(data:font/woff2;base64,__IMBUE__) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Albert Sans";src:url(data:font/woff2;base64,__ALB400__) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Albert Sans";src:url(data:font/woff2;base64,__ALB500__) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#ebe5e3; --surface:#e1dad7; --ink:#2b2622; --muted:#625a56; --accent:#0f7d45; --accent-strong:#0b6738; --accent-text:#0b6738; --accent-ink:#ffffff;
+  --on-ink:#ebe5e3; --on-ink-muted:#b9b0ac;
+  --display:"Imbue","Iowan Old Style","Times New Roman",serif;
+  --text:"Albert Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step-small:clamp(0.8125rem,0.79rem + 0.1vw,0.875rem);
+  --step-body:clamp(1.125rem,1.06rem + 0.2vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.05rem + 0.9vw,1.75rem);
+  --step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+  --step-statement:clamp(1.5rem,1rem + 1.6vw,2.25rem);
+  --m:18px; --gutter:16px; --gap-section:clamp(56px,7.6vw,116px);
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-expo:cubic-bezier(.16,1,.3,1); --ease-in-out:cubic-bezier(.76,0,.24,1);
+  --t-press:140ms; --t-hover:180ms; --t-ui:240ms; --t-reveal:800ms;
+}
+@media (min-width:760px){:root{--m:24px;--gutter:24px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scrollbar-color:var(--ink) var(--surface);scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:var(--step-body);line-height:1.55;font-weight:400;caret-color:var(--accent);overflow-x:clip;-webkit-font-smoothing:antialiased;font-kerning:normal;font-variant-numeric:lining-nums proportional-nums}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+ul,ol,dl,dd,figure{margin:0;padding:0}
+ul{list-style:none}
+button{font:inherit;color:inherit}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--m);top:-80px;z-index:20;background:var(--ink);color:var(--bg);padding:12px 16px;text-decoration:none}
+.skip:focus{top:var(--m)}
+.disp{font-family:var(--display);font-optical-sizing:auto;text-transform:uppercase;letter-spacing:-0.01em;line-height:.9;font-weight:400}
+.h2{font-family:var(--display);text-transform:uppercase;font-size:var(--step-head);line-height:.92;letter-spacing:-0.01em}
+.small{font-size:var(--step-small);line-height:1.45}
+.muted{color:var(--muted)}
+.wrap{padding-inline:var(--m)}
+.section{padding-block:var(--gap-section)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;font-size:var(--step-body);line-height:1;border:0;border-radius:0;cursor:pointer;transition:transform var(--t-press) var(--ease-out),background-color var(--t-hover) ease,color var(--t-hover) ease;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.97)}
+.btn--light{background:var(--on-ink);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--accent);color:var(--accent-ink)}}
+.link{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.22em;text-decoration-thickness:.07em;transition:text-decoration-color var(--t-hover) ease}
+@media (hover:hover) and (pointer:fine){.link:hover{text-decoration-color:currentColor}}
+.link--on{text-decoration-color:currentColor}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;padding:var(--m);display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;grid-template-areas:"lede nav" "name name" "loc social";column-gap:var(--gutter)}
+.hero__lede{grid-area:lede;max-width:36ch;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.hero__lede p{font-size:var(--step-body);line-height:1.45;text-wrap:pretty}
+.hero__nav{grid-area:nav;display:flex;gap:4px 20px;align-items:flex-start;font-size:var(--step-small)}
+.hero__nav a,.hero__social a{text-decoration-color:transparent;padding:6px 0;display:inline-block}
+.hero__name{grid-area:name;align-self:center;margin:0;transform-origin:50% 50%;will-change:transform}
+.name{display:block;width:100%;font-size:13.4vw;white-space:nowrap}
+.name__in{display:inline-block}
+.ch{display:inline-block;overflow:clip;padding-block:.06em .02em;margin-block:-.06em -.02em;vertical-align:bottom}
+.ch>span{display:inline-block}
+.hero__loc{grid-area:loc;align-self:end;font-size:var(--step-small)}
+.hero__social{grid-area:social;align-self:end;display:flex;gap:4px 20px;font-size:var(--step-small)}
+.peek{display:none}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .hero .ch>span{transform:translateY(105%);animation:rise 900ms var(--ease-expo) forwards;animation-delay:calc(100ms + var(--i) * 110ms)}
+  .js .hero [data-load]{opacity:0;transform:translateY(12px);animation:fadeup 520ms var(--ease-out) forwards;animation-delay:var(--d,420ms)}
+}
+@keyframes rise{to{transform:none}}
+@keyframes fadeup{to{opacity:1;transform:none}}
+
+@media (max-width:759px){
+  .hero{height:100svh;min-height:560px;overflow:clip;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"loc nav" "name name" "lede lede" "peek peek";padding-bottom:0}
+  .hero__loc{align-self:start;font-size:var(--step-small);padding-top:6px}
+  .hero__social{display:none}
+  .hero__name{align-self:start;margin-top:11svh}
+  .hero__lede{max-width:none;margin-top:22px}
+  .hero__lede .btn{width:100%}
+  .peek{display:block;grid-area:peek;margin-top:24px;background:var(--surface);padding:18px 18px 0;text-decoration:none;color:inherit;min-height:0}
+}
+
+/* peek (phone hero): a live post being labelled */
+.peek__post{font-size:var(--step-body);line-height:1.45;min-height:3.2em;transition:opacity 320ms ease}
+.peek__rows{margin-top:14px;display:grid;gap:6px}
+.peek__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:var(--step-small);transition:color var(--t-hover) ease}
+.peek__row b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:var(--step-lead);line-height:1;color:var(--muted)}
+.peek__row.is-yes b{color:var(--accent-text)}
+.peek__cap{margin-top:14px;color:var(--muted)}
+.peek.is-swapping .peek__post{opacity:0}
+
+/* ---------- Live thing: read a post ---------- */
+.read{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:48px}
+.read__head{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:24px}
+.read__head h2{grid-column:1/8}
+.read__intro{grid-column:8/13;align-self:end;max-width:52ch}
+.read__in{grid-column:1/7;display:flex;flex-direction:column;gap:14px}
+.read__out{grid-column:8/13;align-self:start;display:grid;gap:8px}
+.read__in label{color:var(--muted)}
+.read textarea{width:100%;min-height:7.2em;resize:vertical;background:var(--surface);color:var(--ink);border:0;border-radius:0;padding:18px;font:inherit;font-size:var(--step-lead);line-height:1.35;transition:background-color var(--t-hover) ease}
+.read textarea:focus{background:#d8d0cc;outline:3px solid var(--accent);outline-offset:0}
+.seen{font-size:var(--step-body);line-height:1.6;min-height:1.6em}
+.seen mark{background:transparent;color:inherit}
+.seen .hl-ill{background:rgba(15,125,69,.2);padding:.04em .14em;margin:0 -.14em}
+.seen .hl-home{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:.14em;text-underline-offset:.22em}
+.try{display:flex;flex-wrap:wrap;gap:0 14px;align-items:baseline}
+.try__label{color:var(--muted);margin-right:4px}
+.ex{background:transparent;border:0;padding:8px 2px;cursor:pointer;font-size:var(--step-body);color:var(--ink);text-decoration:underline;text-decoration-color:rgba(43,38,34,.35);text-underline-offset:.22em;text-decoration-thickness:.07em;transition:text-decoration-color var(--t-hover) ease,color var(--t-hover) ease}
+.ex[aria-pressed="true"]{color:var(--accent-text);text-decoration-color:currentColor}
+@media (hover:hover) and (pointer:fine){.ex:hover{text-decoration-color:currentColor}}
+.verdict{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:transparent;transition:background-color var(--t-ui) ease}
+.verdict__q{font-size:var(--step-lead);line-height:1.2}
+.verdict__a{font-size:var(--step-head);color:var(--muted);min-width:2.2ch;text-align:right;transition:color var(--t-hover) ease}
+.verdict.is-yes{background:var(--surface)}
+.verdict.is-yes .verdict__a{color:var(--accent-text)}
+.read__note{grid-column:8/13;color:var(--muted);max-width:52ch}
+.read__legend{color:var(--muted)}
+@media (max-width:899px){
+  .read__head,.read__in,.read__out,.read__note,.read__head h2,.read__intro{grid-column:1/-1}
+  .read{row-gap:32px}
+  .verdict{padding:14px 16px}
+}
+
+/* ---------- Stats: figures inside a sentence ---------- */
+.stats{background:var(--surface);display:flex;flex-direction:column;gap:32px}
+.stats .h2{max-width:14ch}
+.stats__p{font-size:var(--step-statement);line-height:1.3;color:var(--muted);max-width:42ch;letter-spacing:-0.005em}
+@media (min-width:760px){.stats__p{margin-left:calc((100% + var(--gutter)) / 12)}}
+.stats__p strong{font-weight:500;color:var(--ink);white-space:nowrap}
+.one{letter-spacing:-.14em}
+.stats__src{color:var(--muted)}
+@media (min-width:760px){.stats__src{margin-left:calc((100% + var(--gutter)) / 12)}}
+.roll{display:inline-flex;align-items:baseline}
+.roll__digits{display:inline-flex;font-variant-numeric:tabular-nums;line-height:1}
+.roll__col{display:inline-block;height:1em;overflow:clip;line-height:1}
+.roll__strip{display:flex;flex-direction:column;transform:translateY(calc(var(--d) * -1em))}
+.roll__strip>span{height:1em;line-height:1}
+@media (prefers-reduced-motion:no-preference){
+  .roll:not(.is-in) .roll__strip{transform:none}
+  .roll.is-in .roll__strip{transition:transform 1100ms var(--ease-expo) calc(var(--i) * 70ms)}
+}
+
+/* ---------- About: side facts, wide paragraph ---------- */
+.about__row{display:grid;grid-template-columns:34% minmax(0,1fr);column-gap:var(--gutter)}
+.about__row+.about__row{margin-top:120px}
+.facts{display:grid;gap:20px;max-width:220px;align-content:start}
+.facts dt{color:var(--muted);font-size:var(--step-small)}
+.facts dd{font-size:var(--step-small);line-height:1.4}
+.about__para{font-size:var(--step-lead);line-height:1.35;max-width:min(100%,46ch)}
+.about__word{font-size:var(--step-small);font-weight:500}
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,320px));gap:40px 64px}
+.lists h3{font-size:var(--step-small);font-weight:500;margin-bottom:12px}
+.lists li{display:flex;justify-content:space-between;gap:16px;font-size:var(--step-small);line-height:1.4;padding-block:5px}
+.lists li span:last-child{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:759px){
+  .about__row{grid-template-columns:1fr;row-gap:32px}
+  .about__row+.about__row{margin-top:64px}
+  .facts{order:2;grid-template-columns:1fr 1fr;max-width:none;gap:18px 16px}
+  .facts dd{font-size:var(--step-small)}
+  .about__para{order:1;font-size:var(--step-lead)}
+  .about__word{display:none}
+  .lists{grid-template-columns:1fr;gap:40px}
+}
+
+/* ---------- Work: names as one paragraph ---------- */
+.work__p{margin-top:28px;font-size:var(--step-lead);line-height:1.5;max-width:min(100%,64ch);color:var(--muted)}
+.work__p .h-in{color:var(--ink);font-weight:500}
+.wname{display:inline;padding:2px 0;cursor:pointer;color:var(--muted);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.22em;text-decoration-thickness:.07em;transition:color var(--t-hover) ease,text-decoration-color var(--t-hover) ease;-webkit-tap-highlight-color:transparent}
+.wname[aria-expanded="true"]{color:var(--ink);text-decoration-color:var(--accent)}
+@media (hover:hover) and (pointer:fine){.wname:hover{color:var(--ink)}}
+.work__count{margin-top:20px;color:var(--muted)}
+.panels{margin-top:56px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+.panel{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:20px;padding-block:28px}
+.panel+.panel{margin-top:8px}
+.js .panel[hidden]{display:none}
+.panel__t{grid-column:1/6;font-family:var(--display);text-transform:uppercase;font-size:var(--step-head);line-height:.92}
+.panel__b{grid-column:7/13;display:grid;gap:16px;align-content:start}
+.panel__meta{color:var(--muted)}
+.panel__b ul{display:grid;gap:10px}
+.panel__b li{padding-left:18px;position:relative}
+.panel__b li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;background:var(--accent)}
+.panel__links{display:flex;flex-wrap:wrap;gap:6px 22px}
+.panel__links a{padding-block:4px}
+@media (prefers-reduced-motion:no-preference){
+  .panel.is-entering{animation:panelIn 360ms var(--ease-out) both}
+}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:759px){
+  .panel__t,.panel__b{grid-column:1/-1}
+  .work__p{margin-top:28px;font-size:var(--step-lead);line-height:1.5}
+  .panels{margin-top:36px}
+}
+
+/* ---------- Scene: inside the device ---------- */
+.chap{background:var(--ink);color:var(--on-ink)}
+.chap ::selection{background:var(--on-ink);color:var(--ink)}
+.chap :focus-visible{outline-color:var(--on-ink)}
+.chap__head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:24px;padding-top:var(--gap-section)}
+.chap__head h2{grid-column:1/7}
+.chap__head p{grid-column:7/12;align-self:end;max-width:46ch;color:var(--on-ink)}
+.stage{display:grid;grid-template-columns:7fr 5fr;column-gap:var(--gutter);padding-bottom:var(--gap-section);margin-top:48px}
+.stage__media{margin:0;align-self:start}
+.js .stage__media{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.device{width:100%;height:auto;max-height:78svh;display:block;color:var(--on-ink);overflow:visible}
+.device text{font-family:var(--text);fill:currentColor}
+.node{opacity:.5;transition:opacity 420ms ease}
+.node.is-on{opacity:1}
+.js .node:not(.is-on) .node__label{opacity:.9}
+.flow{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:square}
+.wave rect{transform-box:fill-box;transform-origin:50% 50%}
+@media (prefers-reduced-motion:no-preference){
+  .wave rect{animation:wave 1100ms ease-in-out infinite alternate;animation-play-state:paused;animation-delay:calc(var(--k) * -137ms)}
+  .chap.is-playing .wave rect{animation-play-state:running}
+}
+@keyframes wave{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.stage__count{color:var(--on-ink-muted)}
+.stage__hint{display:none;color:var(--on-ink-muted);padding-inline:var(--m);margin-top:10px}
+.steps{list-style:none}
+.step{min-height:78svh;display:flex;flex-direction:column;justify-content:center;gap:14px;max-width:42ch}
+.js .step{opacity:.4;transition:opacity var(--t-ui) ease}
+.js .step.is-active{opacity:1}
+.step h3{font-family:var(--display);text-transform:uppercase;font-size:var(--step-head);line-height:.92}
+.step p{color:var(--on-ink)}
+.step .fig{font-weight:500}
+@media (max-width:759px){
+  .chap__head h2,.chap__head p{grid-column:1/-1}
+  .stage{display:block;margin-top:24px;padding-inline:0}
+  .stage__media{padding-inline:var(--m)}
+  .js .stage__media{position:static;height:auto;gap:8px}
+  .device{max-height:46svh;width:100%}
+  .steps{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--m);padding:20px var(--m) 4px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:0 0 84%;min-height:0;scroll-snap-align:start;background:#37312d;padding:22px 20px;justify-content:flex-start}
+  .js .step{opacity:.55}
+  .step h3{font-size:var(--step-lead);font-family:var(--text);text-transform:none;font-weight:500;line-height:1.2}
+  .stage__hint{display:block}
+}
+
+/* ---------- Showcase: two figures compared (accent field) ---------- */
+.show{background:var(--accent);color:var(--accent-ink);overflow:clip}
+.show ::selection{background:var(--accent-ink);color:var(--accent)}
+.show :focus-visible{outline-color:var(--accent-ink)}
+.show__top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:20px}
+.show__top h2{grid-column:1/6}
+.show__top p{grid-column:7/13;max-width:60ch}
+.pair{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--gutter);margin-top:clamp(48px,8vh,96px)}
+.spec figcaption{font-size:var(--step-body);line-height:1.35;max-width:30ch;margin-top:14px}
+.spec__box{display:block;overflow:clip;line-height:.86}
+.spec__n{display:inline-block;font-size:21vw}
+.show__foot{margin-top:28px;opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .js .spec__n{transform:translateY(102%);transition:transform 1100ms var(--ease-expo)}
+  .js .spec+.spec .spec__n{transition-delay:120ms}
+  .js .pair.is-in .spec__n{transform:none}
+}
+@media (max-width:759px){
+  .show__top h2,.show__top p{grid-column:1/-1}
+  .pair{grid-template-columns:1fr;row-gap:36px;margin-top:48px}
+  .spec__n{font-size:40vw}
+}
+
+/* ---------- Papers: line-up at one size ---------- */
+.papers{background:var(--surface)}
+.papers__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:24px}
+.papers__sub{color:var(--muted);max-width:48ch}
+.pgroup__h{position:sticky;top:0;z-index:1;background:var(--surface);color:var(--accent-text);font-size:var(--step-lead);font-weight:500;padding:72px 0 20px;line-height:1.2}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) 30% 6.5rem;column-gap:var(--gutter);align-items:baseline;font-size:var(--step-lead);line-height:1.3;padding-block:.42em}
+.prow__t{text-decoration-color:transparent}
+.prow__t[href]{text-decoration:underline;text-decoration-color:rgba(43,38,34,.25);text-underline-offset:.2em;text-decoration-thickness:.06em}
+@media (hover:hover) and (pointer:fine){.prow__t[href]:hover{text-decoration-color:currentColor}}
+.prow__v{color:var(--muted)}
+.prow__y{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.prow__me{font-weight:500}
+@media (max-width:759px){
+  .prow{grid-template-columns:minmax(0,1fr) auto;row-gap:4px;font-size:var(--step-body);padding-block:9px}
+  .prow__t{grid-column:1/-1}
+  .prow__v,.prow__y{font-size:var(--step-small)}
+  .pgroup__h{padding-top:48px}
+}
+
+/* ---------- Contact: address in display rows ---------- */
+.contact{padding-block:var(--gap-section) 0}
+.rows li{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;min-height:clamp(84px,11vw,150px);padding:0 var(--m) .45em;font-size:var(--step-head);line-height:1}
+.rows li:nth-child(odd){background:var(--surface)}
+.rows a{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.14em;text-decoration-thickness:.05em;transition:text-decoration-color var(--t-hover) ease;overflow-wrap:anywhere}
+@media (hover:hover) and (pointer:fine){.rows a:hover{text-decoration-color:currentColor}}
+.rows__hello{gap:24px;align-items:center!important;justify-content:flex-start!important}
+.rows__note{font-size:var(--step-small);line-height:1.4;color:var(--muted);padding-bottom:.5em;text-align:right;flex:0 0 auto}
+.arrow{display:inline-flex;align-items:center;justify-content:center;width:.9em;height:.9em;min-width:48px;min-height:48px;background:var(--ink);color:var(--bg);transition:transform var(--t-press) var(--ease-out),background-color var(--t-hover) ease}
+.hello{display:inline-flex;align-items:center;gap:24px;text-decoration:none!important}
+.hello:active .arrow{transform:scale(.95)}
+.arrow svg{width:46%;height:46%}
+@media (hover:hover) and (pointer:fine){.hello:hover .arrow{background:var(--accent)}}
+@media (max-width:759px){
+  .rows li{font-size:var(--step-statement);min-height:76px;padding-inline:16px}
+  .rows__note{display:none}
+  .rows__hello{background:var(--accent)!important;color:var(--accent-ink)}
+  .hello{width:100%;justify-content:space-between}
+  .rows__hello .arrow{background:var(--accent-ink);color:var(--accent);width:56px;height:56px}
+}
+
+/* ---------- Footer: invitation over a cropped name ---------- */
+.foot{background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;overflow:clip;padding:var(--gap-section) var(--m) 0}
+.foot ::selection{background:var(--on-ink);color:var(--ink)}
+.foot :focus-visible{outline-color:var(--on-ink)}
+.foot__top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:32px}
+.foot__inv{grid-column:1/8;display:flex;flex-direction:column;align-items:flex-start;gap:28px}
+.foot__inv h2{font-size:var(--step-head)}
+.foot__links{grid-column:10/13;display:grid;gap:6px;align-content:start;font-size:var(--step-small)}
+.foot__links a{padding-block:4px;display:inline-block}
+.foot__legal{display:flex;justify-content:space-between;gap:16px;color:var(--on-ink-muted);padding-top:clamp(96px,10vw,160px)}
+.foot__mark{font-size:31vw;white-space:nowrap;line-height:.8;transform:translateY(24%);transform-origin:50% 100%;margin-top:8px;will-change:transform}
+@media (max-width:759px){
+  .foot__inv,.foot__links{grid-column:1/-1}
+  .foot__inv .btn{width:100%}
+  .foot__links{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:var(--step-small)}
+  .foot__mark{font-size:36vw}
+}
+
+/* ---------- Reveals (once, below the fold) ---------- */
+[data-lines] .line{display:block;overflow:clip;padding-bottom:.12em;margin-bottom:-.12em}
+[data-lines] .line>span{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .is-split .line>span{transform:translateY(110%)}
+  .is-split.is-in .line>span{transform:none;transition:transform 900ms var(--ease-expo) calc(var(--i) * 90ms)}
+  .js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity 700ms var(--ease-out),transform 900ms var(--ease-out);transition-delay:calc(var(--i,0) * 70ms)}
+  .js [data-reveal].is-in{opacity:1;transform:none}
+  .js [data-rows]>li,.js [data-rows]>.prow{opacity:0;transform:translateY(14px);transition:opacity 500ms var(--ease-out),transform 600ms var(--ease-out);transition-delay:calc(var(--i,0) * 55ms)}
+  .js [data-rows].is-in>li,.js [data-rows].is-in>.prow{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#read">Skip to content</a>
+
+<header class="hero" id="top">
+  <div class="hero__lede">
+    <p data-load style="--d:420ms">Health NLP research scientist. I turn messy human language, from public posts to clinical conversations, into evidence health services can use.</p>
+    <a class="btn" href="Aarzoo_Dhiman_CV.pdf" download data-load style="--d:480ms">Download CV</a>
+  </div>
+  <nav class="hero__nav" aria-label="Sections">
+    <a class="link" href="#work">Work</a>
+    <a class="link" href="#papers">Papers</a>
+    <a class="link" href="#contact">Contact</a>
+  </nav>
+  <h1 class="hero__name" aria-label="Aarzoo Dhiman, health NLP research scientist">
+    <span class="name disp" data-fit><span class="name__in"><span class="ch"><span style="--i:0">Aarzoo</span></span> <span class="ch"><span style="--i:1">Dhiman</span></span></span></span>
+  </h1>
+  <p class="hero__loc">Hull, UK · moving to London</p>
+  <p class="hero__social">
+    <a class="link" href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">Scholar</a>
+    <a class="link" href="https://www.linkedin.com/in/aarzoo-dhiman-0133ba158/" rel="noopener">LinkedIn</a>
+    <a class="link" href="https://github.com/AarzooDhiman" rel="noopener">GitHub</a>
+  </p>
+  <a class="peek" href="#read" aria-label="Try the post reader">
+    <p class="small peek__cap">A post, read the way my model did</p>
+    <p class="peek__post" id="peekPost">Tested positive this morning. Day two of a fever and no sense of smell.</p>
+    <div class="peek__rows" id="peekRows">
+      <div class="peek__row" data-k="self"><span>Author infected</span><b>No</b></div>
+      <div class="peek__row" data-k="home"><span>Household member infected</span><b>No</b></div>
+      <div class="peek__row" data-k="mention"><span>Household mentioned</span><b>No</b></div>
+    </div>
+    <p class="small peek__cap">Tap to try a post of your own. Three questions, the same ones my classifiers answered for 107.9 million posts.</p>
+  </a>
+</header>
+
+<main>
+<section class="read wrap section" id="read" aria-labelledby="read-h">
+  <div class="read__head">
+    <h2 class="h2" id="read-h" data-lines>Read a post the way my model did</h2>
+    <p class="read__intro" data-reveal>At UCL I trained three classifiers to read posts on X and decide, separately: has the author caught COVID-19, has someone they live with, and do they mention their household at all. Type a post, or try one of mine.</p>
+  </div>
+  <div class="read__in">
+    <label class="small" for="post">Your post</label>
+    <textarea id="post" maxlength="280" spellcheck="false">My daughter brought it home from school. She's positive, the rest of us are testing every day.</textarea>
+    <p class="seen" id="seen" aria-hidden="true"></p>
+    <p class="small read__legend">Shaded: illness words. Underlined: household words.</p>
+    <div class="try" role="group" aria-label="Example posts">
+      <span class="small try__label">Try</span>
+      <button class="ex" type="button" data-ex="0">Tested positive</button>
+      <button class="ex" type="button" data-ex="1" aria-pressed="true">My daughter</button>
+      <button class="ex" type="button" data-ex="2">Working from home</button>
+      <button class="ex" type="button" data-ex="3">Both of us</button>
+      <button class="ex" type="button" data-ex="4">Negative again</button>
+    </div>
+  </div>
+  <ul class="read__out" id="verdicts" aria-live="polite" aria-label="How the post is labelled">
+    <li class="verdict" data-k="self"><span class="verdict__q">Author infected</span><span class="verdict__a disp">No</span></li>
+    <li class="verdict" data-k="home"><span class="verdict__q">Household member infected</span><span class="verdict__a disp">No</span></li>
+    <li class="verdict" data-k="mention"><span class="verdict__q">Household mentioned</span><span class="verdict__a disp">No</span></li>
+  </ul>
+  <p class="small read__note">This reader is a few dozen hand-written rules, written for this page so it runs on your phone. The real models were COVID-Twitter-BERT classifiers fine-tuned on 7,894 labelled tweets, with AUCs of 0.907, 0.934 and 0.768, and their output fed the household transmission estimate below.</p>
+</section>
+
+<section class="stats wrap section" id="covid" aria-labelledby="covid-h">
+  <h2 class="h2" id="covid-h" data-lines>What the posts added up to</h2>
+  <p class="stats__p"><strong><span data-roll>107.9</span>&nbsp;million</strong> posts, <strong><span data-roll>58,555</span>&nbsp;people</strong>: a household attack rate of <strong><span data-roll>0.16</span></strong>, and <strong><span data-roll>6.49</span>&nbsp;days</strong> between cases.</p>
+  <p class="small stats__src">COVID-19 transmission inside UK households, January 2020 to February 2022. First author, <a class="link link--on" href="https://doi.org/10.1038/s41746-024-01160-2" rel="noopener"><i>npj Digital Medicine</i>, 2024</a>, with UCL, epidemiologists and the Virus Watch consortium. <a class="link link--on" href="https://github.com/AarzooDhiman/COVID_SAR" rel="noopener">Code on GitHub</a>.</p>
+</section>
+
+<section class="about wrap section" id="about" aria-labelledby="about-h">
+  <h2 class="sr-only" id="about-h">About</h2>
+  <div class="about__row">
+    <dl class="facts" data-reveal>
+      <div><dt>Based</dt><dd>Hull, UK. Moving to London</dd></div>
+      <div><dt>PhD</dt><dd>IIT Roorkee, 2022</dd></div>
+      <div><dt>Postdoc</dt><dd>UCL, 2021 to 2023</dd></div>
+      <div><dt>Now</dt><dd>Teaching Fellow, University of Hull</dd></div>
+    </dl>
+    <p class="about__para" data-reveal style="--i:1">I build language models that find health signals in text nobody wrote for scientists. At UCL I estimated how COVID-19 spread inside UK homes from 107.9 million social media posts. At Hull I am Co-Investigator and lead author on an NHS-funded system that transcribes a breast cancer team meeting and suggests options grounded in NICE guidelines, without the audio leaving the room. I teach MSc AI and have supervised around forty MSc projects.</p>
+  </div>
+  <div class="about__row">
+    <p class="about__word">Record</p>
+    <div class="lists">
+      <div>
+        <h3>Roles</h3>
+        <ul data-rows>
+          <li><span>Teaching Fellow, University of Hull</span><span>2023 to now</span></li>
+          <li><span>Postdoctoral Research Fellow, UCL</span><span>2021–2023</span></li>
+          <li><span>PhD Computer Science, IIT Roorkee</span><span>2017–2022</span></li>
+          <li><span>MTech Computer Science, NIT Kurukshetra</span><span>2014–2016</span></li>
+          <li><span>PCAP, University of Hull</span><span>2026</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Recognition</h3>
+        <ul data-rows>
+          <li><span>Co-Investigator, £41,707 NHS-funded award</span><span>2025–2026</span></li>
+          <li><span>Mentor, NIHR HDRC Reciprocal Mentorship</span><span>2026</span></li>
+          <li><span>Intel Student Ambassador</span><span>2020</span></li>
+          <li><span>Lisbon ML School, full fee waiver</span><span>2020</span></li>
+          <li><span>Microsoft Research travel grant, KDD London</span><span>2018</span></li>
+          <li><span>Research ethics reviewer, 10+ applications</span><span>Hull</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work wrap section" id="work" aria-labelledby="work-h">
+  <h2 class="h2" id="work-h" data-lines>Selected work</h2>
+  <p class="work__p" data-reveal>
+    <a class="wname" href="#p-mdt" aria-expanded="true" aria-controls="p-mdt">on-device AI for breast cancer team meetings</a>,
+    <a class="wname" href="#p-covid" aria-expanded="false" aria-controls="p-covid">COVID-19 transmission read from social media</a>,
+    <a class="wname" href="#p-risk" aria-expanded="false" aria-controls="p-risk">suicide-related risk from NHS records</a>,
+    <a class="wname" href="#p-misinfo" aria-expanded="false" aria-controls="p-misinfo">unsupervised misinformation detection</a>,
+    <a class="wname" href="#p-campaign" aria-expanded="false" aria-controls="p-campaign">public-health campaign analytics</a>,
+    <a class="wname" href="#p-rag" aria-expanded="false" aria-controls="p-rag">graph-enhanced retrieval for LLMs</a>,
+    <a class="wname" href="#p-events" aria-expanded="false" aria-controls="p-events">event detection on Twitter</a>.
+  </p>
+  <p class="small work__count">Seven projects, 2018 to 2026. Tap a name to open it.</p>
+
+  <div class="panels" aria-live="polite">
+    <article class="panel" id="p-mdt">
+      <h3 class="panel__t">On-device AI for breast cancer MDTs</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">University of Hull with Hull University Teaching Hospitals NHS Foundation Trust · 2025 to 2026 · Co-Investigator, lead and corresponding author</p>
+        <ul>
+          <li>Built and evaluated a speech recognition, LLM and retrieval-augmented generation (RAG) pipeline on one NVIDIA Jetson AGX Orin, so meeting audio stays on the device.</li>
+          <li>Cut Whisper word error rate by 20.7% and 24.4% on held-out recordings of real MDT meetings.</li>
+          <li>Local MedGemma-RAG recalled 0.318 of MDT-concordant treatments against 0.136 for a cloud chatbot baseline (p = 0.020).</li>
+          <li>Funded by a £41,707 NHS-funded Humber and North Yorkshire award.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="#device">See how it works</a><a class="link link--on" href="https://doi.org/10.48550/arXiv.2608.22108" rel="noopener">Preprint, arXiv 2026</a></p>
+      </div>
+    </article>
+    <article class="panel" id="p-covid">
+      <h3 class="panel__t">COVID-19 inside UK homes</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">University College London · 2021 to 2023 · First author</p>
+        <ul>
+          <li>Fine-tuned three CT-BERT classifiers with Hugging Face Transformers on 7,894 labelled tweets (10-fold cross-validation; AUC 0.907, 0.934, 0.768).</li>
+          <li>Built the pipeline from 1.23M candidate users to a geolocated UK cohort of 58,555 users and 107.9M tweets.</li>
+          <li>Household secondary attack rate 0.16 (95% CI 0.14–0.18), mean serial interval 6.49 days, and about 44% of household infections never posted about.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="https://doi.org/10.1038/s41746-024-01160-2" rel="noopener">npj Digital Medicine, 2024</a><a class="link link--on" href="https://github.com/AarzooDhiman/COVID_SAR" rel="noopener">Code</a></p>
+      </div>
+    </article>
+    <article class="panel" id="p-risk">
+      <h3 class="panel__t">Suicide-related risk from NHS records</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">University of Hull with South West Yorkshire Partnership NHS Foundation Trust · First author · Under review</p>
+        <ul>
+          <li>Predictive machine learning on 538 anonymised NHS mental health records with ICD-10-coded diagnoses.</li>
+          <li>scikit-learn, XGBoost, SHAP and mixed-effects models.</li>
+          <li>Under review at Archives of Suicide Research.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="panel" id="p-misinfo">
+      <h3 class="panel__t">Misinformation, without labels</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">IIT Roorkee with Intel India · 2020 · First author</p>
+        <ul>
+          <li>Unsupervised framework of JoSE spherical embeddings, spherical k-means and user-credibility signals over 62M COVID-19 tweets.</li>
+          <li>On the FakeNewsNet benchmark: F1 0.899 on PolitiFact and 0.965 on GossipCop, above six supervised and clustering baselines.</li>
+          <li>Led to selection as an Intel Student Ambassador.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="https://doi.org/10.1109/BigData50022.2020.9378250" rel="noopener">IEEE BigData 2020, oral</a></p>
+      </div>
+    </article>
+    <article class="panel" id="p-campaign">
+      <h3 class="panel__t">What citizens said about a national campaign</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">IIT Roorkee · 2018 to 2022 · First author</p>
+        <ul>
+          <li>Measured public perception of a national cleanliness campaign with embedding-based tweet pooling and sentiment analysis: 0.77 correlation with government surveys.</li>
+          <li>Extended to how government schemes surfaced in electoral campaigns.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="https://doi.org/10.1145/3490503" rel="noopener">ACM TALLIP, 2022</a><a class="link link--on" href="https://doi.org/10.1016/j.eswa.2022.117338" rel="noopener">Expert Systems with Applications, 2022</a></p>
+      </div>
+    </article>
+    <article class="panel" id="p-rag">
+      <h3 class="panel__t">Graph-enhanced retrieval</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">University of Hull · 2026 · with K. Htut and B. K. Mishra</p>
+        <ul>
+          <li>Structured retrieval for retrieval-augmented generation via neural graph traversal with graph neural networks.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="https://doi.org/10.1007/978-3-032-27120-4_18" rel="noopener">CCIS, Springer, 2026</a></p>
+      </div>
+    </article>
+    <article class="panel" id="p-events">
+      <h3 class="panel__t">Finding events in the stream</h3>
+      <div class="panel__b">
+        <p class="panel__meta small">IIT Roorkee · 2020 · First author</p>
+        <ul>
+          <li>An approximate model for detecting real-world events from Twitter data. Her most-cited paper.</li>
+        </ul>
+        <p class="panel__links small"><a class="link link--on" href="https://doi.org/10.1109/ACCESS.2020.3007004" rel="noopener">IEEE Access, 2020</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="chap" id="device" aria-labelledby="device-h">
+  <div class="chap__head wrap">
+    <h2 class="h2" id="device-h" data-lines>Nothing leaves the room</h2>
+    <p data-reveal>A breast cancer team meeting, heard, searched and summarised on one small computer in the room. Scroll through the four steps.</p>
+  </div>
+  <div class="stage wrap">
+    <figure class="stage__media">
+      <svg class="device" viewBox="0 0 360 340" role="img" aria-labelledby="dev-t dev-d">
+        <title id="dev-t">The on-device pipeline</title>
+        <desc id="dev-d">Inside one edge computer: speech is transcribed, NICE guidelines are retrieved, a local language model reasons, and a draft goes back to the clinicians. The boundary shows that audio, transcripts and outputs stay inside.</desc>
+        <rect x="4" y="4" width="352" height="332" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text x="20" y="30" font-size="13">One Jetson AGX Orin, in the room</text>
+        <path class="flow" id="flow" d="M150 104 H214 M278 156 V188 M214 252 H150"/>
+        <g class="node" data-step="0">
+          <g class="wave" fill="currentColor">
+            <rect x="34" y="88" width="5" height="32" style="--k:0"/><rect x="44" y="78" width="5" height="52" style="--k:1"/><rect x="54" y="92" width="5" height="24" style="--k:2"/><rect x="64" y="70" width="5" height="68" style="--k:3"/><rect x="74" y="84" width="5" height="40" style="--k:4"/><rect x="84" y="74" width="5" height="60" style="--k:5"/><rect x="94" y="94" width="5" height="20" style="--k:6"/><rect x="104" y="80" width="5" height="48" style="--k:7"/><rect x="114" y="88" width="5" height="32" style="--k:8"/><rect x="124" y="76" width="5" height="56" style="--k:9"/><rect x="134" y="92" width="5" height="24" style="--k:10"/>
+          </g>
+          <text class="node__label" x="34" y="168" font-size="16" font-weight="500">Listen</text>
+        </g>
+        <g class="node" data-step="1">
+          <rect x="238" y="66" width="62" height="78" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="246" y="58" width="62" height="78" style="fill:var(--ink)" stroke="currentColor" stroke-width="2"/>
+          <rect x="254" y="50" width="62" height="78" style="fill:var(--ink)" stroke="currentColor" stroke-width="2"/>
+          <text x="262" y="72" font-size="11" font-weight="500">NICE</text>
+          <rect x="262" y="82" width="44" height="3" fill="currentColor"/><rect x="262" y="92" width="38" height="3" fill="currentColor"/><rect x="262" y="102" width="44" height="3" fill="currentColor"/><rect x="262" y="112" width="30" height="3" fill="currentColor"/>
+          <text class="node__label" x="228" y="142" font-size="16" font-weight="500" text-anchor="end">Retrieve</text>
+        </g>
+        <g class="node" data-step="2">
+          <rect x="240" y="196" width="76" height="76" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="256" y="212" width="44" height="44" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="2">
+            <path d="M252 196 V188 M266 196 V188 M280 196 V188 M294 196 V188 M308 196 V188"/>
+            <path d="M252 272 V280 M266 272 V280 M280 272 V280 M294 272 V280 M308 272 V280"/>
+            <path d="M240 210 H232 M240 226 H232 M240 242 H232 M240 258 H232"/>
+            <path d="M316 210 H324 M316 226 H324 M316 242 H324 M316 258 H324"/>
+          </g>
+          <text x="264" y="239" font-size="12" font-weight="500" style="fill:var(--ink)">27B</text>
+          <text class="node__label" x="240" y="304" font-size="16" font-weight="500">Reason</text>
+        </g>
+        <g class="node" data-step="3">
+          <rect x="44" y="200" width="78" height="96" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="56" y="214" width="54" height="3" fill="currentColor"/><rect x="56" y="226" width="44" height="3" fill="currentColor"/><rect x="56" y="238" width="54" height="3" fill="currentColor"/><rect x="56" y="250" width="34" height="3" fill="currentColor"/><rect x="56" y="268" width="24" height="14" fill="currentColor"/>
+          <text class="node__label" x="44" y="318" font-size="16" font-weight="500">Review</text>
+        </g>
+      </svg>
+      <figcaption class="small stage__count" id="stepCount" aria-live="polite">Step 1 of 4</figcaption>
+    </figure>
+    <p class="small stage__hint">Swipe through the four steps.</p>
+    <ol class="steps" id="steps">
+      <li class="step is-active" data-step="0">
+        <h3>Listen</h3>
+        <p>Whisper large-v3 transcribes the meeting on the device. Silence-aware preprocessing, Bayesian search with Optuna and noise-adaptive decoding cut the word error rate by <span class="fig">20.7%</span> and <span class="fig">24.4%</span> on held-out recordings of real MDT meetings.</p>
+      </li>
+      <li class="step" data-step="1">
+        <h3>Retrieve</h3>
+        <p>Each case is matched against NICE guidelines held in a local FAISS index, so a suggestion can point to the guidance behind it.</p>
+      </li>
+      <li class="step" data-step="2">
+        <h3>Reason</h3>
+        <p>A quantised MedGemma 27B, served with llama.cpp on CUDA and TensorRT inside Docker, drafts the options. Audio and transcripts stay on the device, in step with NHS information governance.</p>
+      </li>
+      <li class="step" data-step="3">
+        <h3>Review</h3>
+        <p>Clinicians stay in charge. In consultation sessions with <span class="fig">12</span> clinicians and <span class="fig">2</span> MDT coordinators, documentation support and case triage came out as the near-term uses; workflow integration and governance as the main barriers.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="show wrap section" id="result" aria-labelledby="show-h">
+  <div class="show__top">
+    <h2 class="h2" id="show-h" data-lines>Closer to what the team chose</h2>
+    <p data-reveal>Two oncology experts labelled 66 treatment decisions across six real cases. The local model recalled 2.3 times as many of the treatments the MDT actually chose as a cloud chatbot baseline (p = 0.020).</p>
+  </div>
+  <div class="pair" data-pair>
+    <figure class="spec">
+      <div class="spec__box"><span class="spec__n disp">0.318</span></div>
+      <figcaption>Local MedGemma + RAG, on the device</figcaption>
+    </figure>
+    <figure class="spec">
+      <div class="spec__box"><span class="spec__n disp">0.136</span></div>
+      <figcaption>Cloud chatbot baseline</figcaption>
+    </figure>
+  </div>
+  <p class="small show__foot">Recall of MDT-concordant treatments. Preprint: <a class="link link--on" href="https://doi.org/10.48550/arXiv.2608.22108" rel="noopener">arXiv, 2026</a>.</p>
+</section>
+
+<section class="papers wrap section" id="papers" aria-labelledby="papers-h">
+  <div class="papers__head">
+    <h2 class="h2" id="papers-h" data-lines>Papers</h2>
+    <p class="papers__sub small">First author on 12 of these 13. <a class="link link--on" href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">All on Google Scholar</a>.</p>
+  </div>
+  <div class="pgroup">
+    <h3 class="pgroup__h">Journals</h3>
+    <div class="plist" data-rows>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1038/s41746-024-01160-2" rel="noopener">Estimating the household secondary attack rate and serial interval of COVID-19 using social media</a><span class="prow__v">npj Digital Medicine</span><span class="prow__y">2024</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1016/j.eswa.2022.117338" rel="noopener">AI-based Twitter framework for assessing the involvement of government schemes in electoral campaigns</a><span class="prow__v">Expert Systems with Applications</span><span class="prow__y">2022</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1145/3490503" rel="noopener">A Twitter framework to assess the effectiveness of Indian government campaign</a><span class="prow__v">ACM TALLIP</span><span class="prow__y">2022</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1109/ACCESS.2020.3007004" rel="noopener">An approximate model for event detection from Twitter data</a><span class="prow__v">IEEE Access</span><span class="prow__y">2020</span></p>
+    </div>
+  </div>
+  <div class="pgroup">
+    <h3 class="pgroup__h">Conferences and workshops</h3>
+    <div class="plist" data-rows>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1007/978-3-032-27120-4_18" rel="noopener">GNN-Enhanced RAG: structured retrieval via neural graph traversal for knowledge-augmented generation</a><span class="prow__v">CCIS, Springer</span><span class="prow__y">2026</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1109/BigData50022.2020.9378250" rel="noopener">An unsupervised misinformation detection framework to analyze the users using COVID-19 Twitter data</a><span class="prow__v">IEEE BigData, oral</span><span class="prow__y">2020</span></p>
+      <p class="prow"><a class="prow__t" href="https://arxiv.org/abs/2007.06511" rel="noopener">An enhanced text classification to explore health based Indian government policy tweets</a><span class="prow__v">DSHealth Workshop at KDD</span><span class="prow__y">2020</span></p>
+      <p class="prow"><span class="prow__t">Cleanliness campaign vs sanitation related diseases: are they parallel in public perspective?</span><span class="prow__v">epiDAMIK Workshop at KDD, London</span><span class="prow__y">2018</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1007/978-3-030-11680-4_34" rel="noopener">Do public and government think similar about Indian cleanliness campaign?</a><span class="prow__v">SIMBig, oral</span><span class="prow__y">2018</span></p>
+    </div>
+  </div>
+  <div class="pgroup">
+    <h3 class="pgroup__h">Preprints and under review</h3>
+    <div class="plist" data-rows>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.48550/arXiv.2608.22108" rel="noopener">Development and feasibility evaluation of an edge AI as medical device system for breast cancer multidisciplinary team meetings</a><span class="prow__v">arXiv</span><span class="prow__y">2026</span></p>
+      <p class="prow"><span class="prow__t">Machine learning based suicide-related risk assessment using structured NHS clinical data: a case control study</span><span class="prow__v">Archives of Suicide Research</span><span class="prow__y">In review</span></p>
+    </div>
+  </div>
+  <div class="pgroup">
+    <h3 class="pgroup__h">Earlier</h3>
+    <div class="plist" data-rows>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1016/j.procs.2016.06.085" rel="noopener">Optimizing frequent subgraph mining for single large graph</a><span class="prow__v">Procedia Computer Science</span><span class="prow__y">2016</span></p>
+      <p class="prow"><a class="prow__t" href="https://doi.org/10.1109/ICACCA.2016.7578886" rel="noopener">Frequent subgraph mining algorithms for single large graphs: a brief survey</a><span class="prow__v">ICACCA, IEEE</span><span class="prow__y">2016</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <h2 class="sr-only" id="contact-h">Contact</h2>
+  <ul class="rows">
+    <li><span>Hull, UK, moving to London</span></li>
+    <li><a href="mailto:aarzoodhiman@gmail.com">aarzoodhiman@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/aarzoo-dhiman-0133ba158/" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">Google Scholar</a></li>
+    <li><a href="https://github.com/AarzooDhiman" rel="noopener">GitHub</a></li>
+    <li class="rows__hello"><a class="hello" href="mailto:aarzoodhiman@gmail.com?subject=Hello%20from%20your%20website">Say hello <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span></a></li>
+  </ul>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot__top">
+    <div class="foot__inv">
+      <h2 class="disp">Building health AI in London? Let’s talk.</h2>
+      <a class="btn btn--light" href="mailto:aarzoodhiman@gmail.com?subject=Research%20scientist%20role">Email Aarzoo</a>
+    </div>
+    <ul class="foot__links">
+      <li><a class="link" href="https://www.linkedin.com/in/aarzoo-dhiman-0133ba158/" rel="noopener">LinkedIn</a></li>
+      <li><a class="link" href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">Google Scholar</a></li>
+      <li><a class="link" href="https://github.com/AarzooDhiman" rel="noopener">GitHub</a></li>
+      <li><a class="link" href="https://orcid.org/0000-0002-2447-2745" rel="noopener">ORCID</a></li>
+    </ul>
+  </div>
+  <div class="foot__legal small"><span>© 2026 Aarzoo Dhiman</span><a class="link" href="#top">Back to top</a></div>
+  <p class="foot__mark disp" aria-hidden="true">Aarzoo</p>
+</footer>
+
+<script>/*__GSAP__*/</script>
+<script>/*__ST__*/</script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+
+  /* 1. Fit the name (and any [data-fit]) to its line */
+  const fitAll = () => $$('[data-fit]').forEach((el) => {
+    const inner = el.firstElementChild;
+    el.style.fontSize = '100px';
+    const w = inner.offsetWidth;
+    if (w) el.style.fontSize = (100 * el.clientWidth / w * 0.985).toFixed(2) + 'px';
+  });
+  fitAll();
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitAll(); if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+  let lastW = innerWidth;
+  addEventListener('resize', debounce(() => { if (innerWidth !== lastW) { lastW = innerWidth; fitAll(); } }, 120));
+
+  /* 2. The post reader: a toy stand-in for three binary classifiers */
+  const HOME = /\b(wife|husband|partner|fianc[eé]e?|boyfriend|girlfriend|sons?|daughters?|kids?|child|children|baby|toddler|mum|mom|mother|dad|father|parents?|brother|sister|siblings?|flatmate|housemate|roommate|family|household|grandma|grandad|grandpa|nan|nanna|in-laws?)\b/i;
+  const ILL = /\b(tested positive|testing positive|positive (?:pcr|lft|lateral flow|test|result)|covid[- ]positive|positive for covid|(?:got|has|have|had|caught) (?:covid|corona|the virus)|caught it|down with covid|sick with covid|self[- ]isolating|isolating|fever|high temperature|lost (?:my|his|her|their) (?:sense of )?(?:smell|taste)|no sense of (?:smell|taste)|symptoms|(?:have|has|got|caught) it (?:too|as well)|(?<!stay |be |think )positive)\b/i;
+  const NEG = /\b(negative|not positive|no symptoms|(?:don'?t|doesn'?t|didn'?t) have (?:covid|it)|(?:haven'?t|hasn'?t) got (?:covid|it)|recovered)\b/i;
+  const SELF = /\b(i|i'm|im|i've|ive|i'd|me|myself|my test|we|we're|we've|us)\b/i;
+  const BOTH = /\b(me and my|my \w+ and (?:i|me)|both|we|we're|we've|us)\b/i;
+  const THIRD = /\b(she|he|they|she's|he's|they're|her|him|them)\b/i;
+  const analyse = (text) => {
+    const out = { self: false, home: false, mention: false };
+    let homeSeen = false;
+    text.split(/(?<=[.!?;:])\s+|,\s*|\s+but\s+|\s+and\s+(?=(?:i|i'm|i've|we|we're|we've)\b)/i).forEach((c) => {
+      if (!c.trim()) return;
+      const hasHome = HOME.test(c);
+      const ill = ILL.test(c) && !NEG.test(c);
+      if (hasHome) { out.mention = true; homeSeen = true; }
+      if (!ill) return;
+      if (hasHome) { out.home = true; if (BOTH.test(c)) out.self = true; }
+      else if (THIRD.test(c) && homeSeen) out.home = true;
+      else out.self = true;
+    });
+    return out;
+  };
+  const esc = (s) => s.replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const highlight = (text) => {
+    const marks = [];
+    const scan = (re, cls) => { const g = new RegExp(re.source, 'gi'); let m; while ((m = g.exec(text))) { if (!m[0]) { g.lastIndex++; continue; } marks.push([m.index, m.index + m[0].length, cls]); } };
+    scan(ILL, 'hl-ill'); scan(HOME, 'hl-home');
+    marks.sort((a, b) => a[0] - b[0]);
+    let html = '', at = 0;
+    for (const [s, e, cls] of marks) { if (s < at) continue; html += esc(text.slice(at, s)) + `<mark class="${cls}">` + esc(text.slice(s, e)) + '</mark>'; at = e; }
+    return html + esc(text.slice(at));
+  };
+  const EXAMPLES = [
+    'Tested positive this morning. Day two of a fever and no sense of smell.',
+    "My daughter brought it home from school. She's positive, the rest of us are testing every day.",
+    'Working from home with my husband and two kids is chaos today.',
+    'Me and my partner both have covid now, isolating together.',
+    'Lateral flow negative again, still feeling fine.'
+  ];
+  const post = $('#post'), seen = $('#seen');
+  const setVerdicts = (rows, v) => rows.forEach((row) => {
+    const yes = v[row.dataset.k];
+    row.classList.toggle('is-yes', yes);
+    const a = row.querySelector('.verdict__a, b');
+    if (a) a.textContent = yes ? 'Yes' : 'No';
+  });
+  const verdictRows = $$('#verdicts .verdict');
+  const run = () => { const t = post.value; seen.innerHTML = highlight(t); setVerdicts(verdictRows, analyse(t)); };
+  post.addEventListener('input', () => { $$('.ex').forEach((b) => b.setAttribute('aria-pressed', 'false')); run(); });
+  $$('.ex').forEach((b) => b.addEventListener('click', () => {
+    post.value = EXAMPLES[+b.dataset.ex];
+    $$('.ex').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    run();
+  }));
+  run();
+
+  /* 3. Phone hero: the same reader, cycling through the examples */
+  const peek = $('.peek'), peekPost = $('#peekPost'), peekRows = $$('#peekRows .peek__row');
+  const showPeek = (i) => { peekPost.textContent = EXAMPLES[i]; setVerdicts(peekRows, analyse(EXAMPLES[i])); };
+  showPeek(0);
+  if (!reduce && peek) {
+    let i = 0, timer = null, visible = false;
+    const tick = () => {
+      peek.classList.add('is-swapping');
+      setTimeout(() => { i = (i + 1) % EXAMPLES.length; showPeek(i); peek.classList.remove('is-swapping'); }, 320);
+    };
+    const sync = () => { const on = visible && !document.hidden && getComputedStyle(peek).display !== 'none'; if (on && !timer) timer = setInterval(tick, 3600); if (!on && timer) { clearInterval(timer); timer = null; } };
+    new IntersectionObserver((e) => { visible = e[0].isIntersecting; sync(); }).observe(peek);
+    document.addEventListener('visibilitychange', sync);
+  }
+
+  /* 4. Work: names open their panel */
+  const names = $$('.wname'), panels = $$('.panel');
+  const openPanel = (btn, focus) => {
+    names.forEach((n) => n.setAttribute('aria-expanded', String(n === btn)));
+    panels.forEach((p) => { const on = p.id === btn.getAttribute('aria-controls'); p.hidden = !on; if (on) { p.classList.remove('is-entering'); void p.offsetWidth; p.classList.add('is-entering'); } });
+    if (focus && innerWidth < 760) { const p = $('#' + btn.getAttribute('aria-controls')); const r = p.getBoundingClientRect(); if (r.top > innerHeight * 0.75) p.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+  };
+  names.forEach((n) => n.addEventListener('click', (ev) => { ev.preventDefault(); openPanel(n, true); }));
+  panels.forEach((p, k) => { p.hidden = k !== 0; });
+
+  /* 5. Reveals, once */
+  $$('[data-rows]').forEach((list) => [...list.children].forEach((c, k) => c.style.setProperty('--i', Math.min(k, 8))));
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  }, { rootMargin: '0px 0px -4% 0px', threshold: 0.01 });
+  $$('[data-reveal],[data-rows],[data-pair]').forEach((el) => io.observe(el));
+
+  /* 6. Headings rise line by line (split after fonts load; restored after) */
+  const lineEls = $$('[data-lines]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const restore = (el) => { el.textContent = el.dataset.text; el.classList.remove('is-split', 'is-in'); };
+    const split = (el) => {
+      const text = el.textContent.trim().replace(/\s+/g, ' ');
+      el.dataset.text = text; el.textContent = '';
+      const words = text.split(' ').map((w) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.textContent = w; el.append(s, ' '); return s; });
+      const lines = [];
+      for (const w of words) { const last = lines.at(-1); if (last && Math.abs(last.top - w.offsetTop) < 4) last.words.push(w.textContent); else lines.push({ top: w.offsetTop, words: [w.textContent] }); }
+      el.textContent = '';
+      lines.forEach((l, i) => { const m = document.createElement('span'); const inner = document.createElement('span'); m.className = 'line'; inner.style.setProperty('--i', i); inner.textContent = l.words.join(' '); m.append(inner); el.append(m, ' '); });
+      el.classList.add('is-split');
+    };
+    const lio = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        lio.unobserve(e.target); e.target.classList.add('is-in');
+        const last = e.target.querySelector('.line:last-of-type > span');
+        if (last) last.addEventListener('transitionend', () => restore(e.target), { once: true }); else restore(e.target);
+      }
+    }, { rootMargin: '0px 0px -2% 0px' });
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => lineEls.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight * 0.9) return;          // already in view: leave it whole
+      split(el); lio.observe(el);
+    }));
+  }
+
+  /* 7. Figures roll up once */
+  const rolls = $$('[data-roll]');
+  rolls.forEach((el) => {
+    const value = el.textContent.trim();
+    const said = Object.assign(document.createElement('span'), { className: 'sr-only', textContent: value });
+    const shown = Object.assign(document.createElement('span'), { className: 'roll__digits' });
+    shown.setAttribute('aria-hidden', 'true');
+    let i = 0;
+    for (const ch of value) {
+      if (!/\d/.test(ch)) { shown.append(ch); continue; }
+      const col = Object.assign(document.createElement('span'), { className: 'roll__col' });
+      const strip = Object.assign(document.createElement('span'), { className: 'roll__strip' });
+      strip.style.setProperty('--d', ch); strip.style.setProperty('--i', i++);
+      for (let n = 0; n < 10; n++) strip.append(Object.assign(document.createElement('span'), { textContent: n }));
+      col.append(strip); shown.append(col);
+    }
+    el.classList.add('roll'); el.replaceChildren(said, shown);
+  });
+  const settle = (r) => { const v = r.querySelector('.sr-only').textContent; r.classList.remove('roll', 'is-in'); r.setAttribute('aria-label', v); r.innerHTML = v.replace(/1(?=[\d.,])/g, '<span class="one" aria-hidden="true">1</span>'); };
+  if (reduce) rolls.forEach(settle);
+  const rio = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) {
+      $$('.roll', e.target).forEach((r) => { r.classList.add('is-in'); setTimeout(() => settle(r), 1500); });
+      rio.unobserve(e.target);
+    }
+  }, { rootMargin: '0px 0px -15% 0px' });
+  const statsP = $('.stats__p'); if (statsP) rio.observe(statsP);
+
+  /* 8. The device scene: the step in the middle of the screen is lit */
+  const scene = $('#device'), steps = $$('#steps .step'), nodes = $$('.device .node'), count = $('#stepCount');
+  const light = (k) => {
+    steps.forEach((s, j) => s.classList.toggle('is-active', j === k));
+    nodes.forEach((n) => n.classList.toggle('is-on', +n.dataset.step === k));
+    if (count) count.textContent = `Step ${k + 1} of ${steps.length}`;
+    scene.classList.toggle('is-listening', k === 0);
+  };
+  light(0);
+  const phone = matchMedia('(max-width: 759px)');
+  const sio = new IntersectionObserver((entries) => {
+    if (phone.matches) return;
+    for (const e of entries) if (e.isIntersecting) light(+e.target.dataset.step);
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  const hio = new IntersectionObserver((entries) => {
+    if (!phone.matches) return;
+    for (const e of entries) if (e.isIntersecting) light(+e.target.dataset.step);
+  }, { root: $('#steps'), threshold: 0.6 });
+  steps.forEach((s) => { sio.observe(s); hio.observe(s); });
+  // the waveform only moves while the scene is on screen (and never under reduced motion)
+  new IntersectionObserver((entries) => { scene.classList.toggle('is-playing', entries[0].isIntersecting); }).observe(scene);
+
+  /* 9. Scroll-linked moves (GSAP ScrollTrigger). Without GSAP or with reduced motion the page is already finished. */
+  const flow = $('#flow');
+  if (window.gsap && window.ScrollTrigger && !reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    // signature: the wordmark settles a few percent as the first screen leaves
+    gsap.to('.hero__name', { scale: 0.94, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    // and the footer name grows into place as the page closes
+    gsap.fromTo('.foot__mark', { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+    // the flow inside the device draws as the steps pass
+    if (flow && !phone.matches) {
+      const len = flow.getTotalLength();
+      gsap.set(flow, { strokeDasharray: len, strokeDashoffset: len });
+      gsap.to(flow, { strokeDashoffset: 0, ease: 'none', scrollTrigger: { trigger: '#steps', start: 'top 55%', end: 'bottom 75%', scrub: true } });
+    }
+    addEventListener('load', () => ScrollTrigger.refresh());
+  }
+})();
+</script>
+</body>
+</html>

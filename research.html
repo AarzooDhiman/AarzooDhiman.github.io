@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research · Dr Aarzoo Dhiman</title>
+<meta name="description" content="Research by Dr Aarzoo Dhiman: COVID-19 household transmission from 107.9 million social media posts, an on-device AI system for NHS breast cancer team meetings, misinformation, public perception, and retrieval with graphs. Papers and code.">
+<meta name="theme-color" content="#0c0d0c">
+<link rel="canonical" href="https://aarzoodhiman.github.io/research.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dr Aarzoo Dhiman">
+<meta property="og:url" content="https://aarzoodhiman.github.io/research.html">
+<meta property="og:title" content="Research · Aarzoo Dhiman">
+<meta property="og:description" content="COVID-19 household transmission from social media, on-device AI for NHS cancer teams, and the papers behind them.">
+<meta property="og:image" content="https://aarzoodhiman.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research · Aarzoo Dhiman">
+<meta name="twitter:description" content="COVID-19 household transmission from social media, on-device AI for NHS cancer teams, and the papers behind them.">
+<meta name="twitter:image" content="https://aarzoodhiman.github.io/assets/img/og.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script>
+/* Decide the motion mode before first paint: full, or static (reduced motion / user turned it off). */
+(function(){var d=document.documentElement;d.classList.add('js');var off=false;try{off=localStorage.getItem('ad-motion')==='off'}catch(e){}
+if(off||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('static');})();
+</script>
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/vendor/gsap.min.js" defer></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/vendor/lenis.min.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/story.js" defer></script>
+<script src="assets/js/research.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#funnel">Skip to the work</a>
+
+<header class="bar" id="bar">
+  <a class="bar__name" href="index.html">Dr Aarzoo Dhiman</a>
+  <nav class="nav" aria-label="Pages">
+    <a href="index.html">Profile</a>
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="funding-talks.html">Funding &amp; talks</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="bar__right">
+    <a class="btn" href="Aarzoo_Dhiman_CV.pdf" download>Download CV</a>
+  </div>
+</header>
+
+<nav class="dock" id="dock" aria-label="Quick actions">
+  <a class="btn" href="Aarzoo_Dhiman_CV.pdf" download>Download CV</a>
+  <a class="btn btn--ghost" href="mailto:aarzoodhiman@gmail.com?subject=Research%20scientist%20role">Email</a>
+</nav>
+
+<main id="main">
+<!-- INTRO AND FOUR THEMES -->
+<section class="scene sec" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Research</p>
+    <h1 class="h2">Finding signal in messy language</h1>
+    <p class="lead" style="margin-top:24px;max-width:34ch;color:var(--dim)">Four themes, one habit: take the language people produce naturally, in posts, meetings and clinical records, and turn it into a result you can measure.</p>
+    <nav class="jump" aria-label="On this page"><a href="#funnel">COVID-19 study</a><a href="#mdt">MDT system</a><a href="#more">More projects</a><a href="#papers">Papers</a></nav>
+    <div class="themes">
+      <a class="theme" href="#funnel" data-rise><i>Theme 1</i><b>Digital epidemiology from social media</b><span>COVID-19 household transmission, estimated from 107.9 million posts.</span></a>
+      <a class="theme" href="#mdt" data-rise style="--i:1"><i>Theme 2</i><b>Clinical NLP and on-device LLMs</b><span>Speech, retrieval and an LLM on one device in an NHS cancer team meeting.</span></a>
+      <a class="theme" href="#more" data-rise style="--i:2"><i>Theme 3</i><b>Misinformation and public perception</b><span>Finding misinformed users without labels, and measuring what citizens felt about public campaigns.</span></a>
+      <a class="theme" href="#more" data-rise style="--i:3"><i>Theme 4</i><b>Retrieval and graphs</b><span>Structured retrieval by graph traversal for knowledge-augmented generation.</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL · pinned scrub, depth-0 canvas, depth-4 captions -->
+<section class="scene funnel" id="funnel">
+  <div class="wrap funnel__intro">
+    <span class="feat__tag">Featured project · COVID-19 household transmission</span>
+    <h2 class="h2" data-lines>How 107.9 million posts became one number</h2>
+    <p class="lead" data-rise>The question was simple. When COVID-19 got into a UK home, how often did it spread to the people living there? This is how the answer came out of social media.</p>
+  </div>
+  <div class="story__stage" id="funnelStage">
+    <canvas class="story__canvas" id="funnelCanvas" aria-hidden="true"></canvas>
+    <p class="story__src note">Dhiman et al., <i>npj Digital Medicine</i> 7:194 (2024). First author. Dots show proportions where it helps; they are not individual people.</p>
+    <ol class="story__steps" id="fsteps">
+      <li class="story__step on"><span class="num" data-count="1226509">1,226,509</span><p>people posted on X about catching COVID-19, or about someone at home catching it.</p></li>
+      <li class="story__step"><span class="num" data-count="77016">77,016</span><p>of them could be placed in the UK.</p><p class="note">6.3% of the first group. The lit dots keep that proportion.</p></li>
+      <li class="story__step"><span class="num" data-count="58555">58,555</span><p>also wrote about the people they live with.</p></li>
+      <li class="story__step"><span class="num" data-count="107.9" data-dec="1" data-suffix="M">107.9M</span><p>posts from their timelines, January 2020 to February 2022.</p></li>
+      <li class="story__step"><span class="num" data-count="7894">7,894</span><p>posts labelled by hand to teach the models what to look for.</p></li>
+      <li class="story__step"><span class="num" data-count="0.934" data-dec="3">0.934</span><p>best AUC of three fine-tuned CT-BERT classifiers.</p><p class="note">Author infected 0.907 · household member infected 0.934 · household mentioned 0.768.</p></li>
+      <li class="story__step"><span class="num sig" data-count="0.16" data-dec="2">0.16</span><p>household secondary attack rate (95% CI 0.14–0.18), with 6.49 days between one case and the next.</p><p class="note">About 44% of household infections were never posted about. The model corrects for that.</p></li>
+    </ol>
+    <p class="story__prog" id="fprog" aria-hidden="true">1 of 7</p>
+  </div>
+</section>
+
+<!-- SIMULATOR · the visitor builds the result (IKEA effect) -->
+<section class="scene sim" id="sim">
+  <div class="wrap sim__grid">
+    <div class="sim__head">
+      <h2 class="h2" data-lines>Now you run it</h2>
+      <p class="lead" data-rise>Pick a variant and a household size, then watch 100 homes. Every number driving this comes from the paper.</p>
+    </div>
+    <div class="sim__ctl">
+      <div class="ctl"><h3 id="vlabel">Variant (the paper's estimate)</h3>
+        <div class="seg" role="group" aria-labelledby="vlabel" id="segVar">
+          <button type="button" data-v="all" aria-pressed="true">Overall<small>0.160</small></button>
+          <button type="button" data-v="alpha" aria-pressed="false">Alpha<small>0.148</small></button>
+          <button type="button" data-v="delta" aria-pressed="false">Delta<small>0.154</small></button>
+          <button type="button" data-v="omicron" aria-pressed="false">Omicron<small>0.223</small></button>
+        </div></div>
+      <div class="ctl"><h3 id="hlabel">People in each home</h3>
+        <div class="seg" role="group" aria-labelledby="hlabel" id="segSize">
+          <button type="button" data-n="2" aria-pressed="false">2</button>
+          <button type="button" data-n="3" aria-pressed="false">3</button>
+          <button type="button" data-n="4" aria-pressed="true">4</button>
+          <button type="button" data-n="5" aria-pressed="false">5</button>
+          <button type="button" data-n="6" aria-pressed="false">6</button>
+        </div></div>
+      <button class="btn sim__run" type="button" id="simRun">Run 100 households</button>
+      <p class="note">An illustration driven by the paper's estimates. It is not patient data.</p>
+    </div>
+    <div class="sim__out">
+      <canvas class="sim__canvas" id="simCanvas" aria-hidden="true"></canvas>
+      <div class="sim__stat" aria-live="polite">
+        <span class="num sig" id="simPct">0%</span>
+        <span id="simText">of household contacts infected. Press run.</span>
+        <span class="sim__day dim" id="simDay">Day 0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MDT · the meeting that never leaves the room: a scroll story, same mechanics as the funnel -->
+<section class="scene mdt" id="mdt">
+  <div class="wrap mdt__head">
+    <span class="feat__tag">Featured project · On-device AI for NHS cancer teams</span>
+    <h2 class="h2" data-lines>The meeting that never leaves the room</h2>
+    <p class="lead" data-rise>A breast cancer team meets to decide treatment. My system listens, checks NICE guidelines and drafts options on one small computer in the room. The audio never leaves it.</p>
+  </div>
+  <div class="story__stage" id="mdtStage">
+    <canvas class="story__canvas" id="mdtCanvas" aria-hidden="true"></canvas>
+    <p class="story__src note">Dhiman et al., arXiv preprint (2026), <a class="lnk" href="https://doi.org/10.48550/arXiv.2608.22108" rel="noopener">doi:10.48550/arXiv.2608.22108</a>. Lead and corresponding author. NHS-funded (£41,707, Co-Investigator).</p>
+    <ol class="story__steps" id="msteps">
+      <li class="story__step on"><span class="kicker">The meeting <span class="tag">Illustration</span></span><p>A breast cancer team meets to agree each patient’s treatment. Everything said is sensitive.</p></li>
+      <li class="story__step"><span class="kicker">Listen</span><span class="num" data-count="24.4" data-dec="1" data-suffix="%">24.4%</span><p>lower word error rate on held-out recordings of real MDT meetings (20.7% on the other set), from Whisper large-v3 with silence-aware preprocessing, Bayesian search with Optuna and noise-adaptive decoding.</p><p class="note">The bar shows the relative cut, not the error rate itself.</p></li>
+      <li class="story__step"><span class="kicker">Retrieve <span class="tag">Illustration</span></span><p>Each case is matched against NICE guidelines in a local FAISS index, so a suggestion can point to the guidance behind it.</p></li>
+      <li class="story__step"><span class="kicker">Reason, on one device <span class="tag">Illustration</span></span><span class="num" data-count="27" data-suffix="B">27B</span><p>MedGemma 27B, quantised, served with llama.cpp on CUDA and TensorRT inside Docker on one NVIDIA Jetson AGX Orin. Audio and transcripts stay on the device, in step with NHS information governance.</p></li>
+      <li class="story__step"><span class="kicker">The test</span><span class="num" data-count="66">66</span><p>treatment decisions across six cases, labelled by two oncology experts.</p><p class="note">The grid is not grouped by case.</p></li>
+      <li class="story__step"><span class="kicker">The result</span><span class="num"><span class="sig">0.318</span><small>vs</small>0.136</span><span class="num2">2.3×</span><p>On-device MedGemma with retrieval found 0.318 of the MDT-concordant treatments; the cloud chatbot baseline found 0.136. 2.3 times the recall, p = 0.020.</p></li>
+      <li class="story__step"><span class="kicker">Clinicians stay in charge</span><span class="num" data-count="14">14</span><p>12 clinicians and 2 MDT coordinators consulted: documentation support and case triage are the near-term uses; workflow integration and governance are the main barriers.</p></li>
+    </ol>
+    <p class="story__prog" id="mprog" aria-hidden="true">1 of 7</p>
+  </div>
+</section>
+
+<!-- MORE WORK · horizontal journey through other projects -->
+<section class="scene more" id="more">
+  <div class="wrap more__head">
+    <h2 class="h2" data-lines>More signal, other noise</h2>
+    <p class="lead" data-rise>Five more problems where the answer was hiding in messy data.</p>
+  </div>
+  <div class="more__view" id="moreView">
+    <div class="more__track" id="moreTrack">
+      <article class="card"><canvas data-viz="sphere" aria-hidden="true"></canvas><div class="card__b"><p class="tag">IIT Roorkee with Intel India · 2020 · Illustration of the method</p><h3>Misinformation, found without labels</h3><p>Spherical embeddings, spherical k-means and user-credibility signals over 62M COVID-19 tweets. Oral at IEEE BigData 2020.</p><p class="figs"><span><b>0.899</b> F1 PolitiFact</span><span><b>0.965</b> F1 GossipCop</span></p></div></article>
+      <article class="card"><canvas data-viz="spikes" aria-hidden="true"></canvas><div class="card__b"><p class="tag">IIT Roorkee · 2020 · Illustration</p><h3>Events, caught in the stream</h3><p>An approximate model for detecting real-world events from Twitter data. IEEE Access, and my most-cited paper.</p></div></article>
+      <article class="card"><canvas data-viz="lines" aria-hidden="true"></canvas><div class="card__b"><p class="tag">IIT Roorkee · 2018 to 2022 · Illustration</p><h3>What citizens actually felt</h3><p>Public perception of a national cleanliness campaign, measured from tweets (ACM TALLIP 2022), then extended to electoral campaigns (Expert Systems with Applications 2022).</p><p class="figs"><span><b>0.77</b> correlation with government surveys</span></p></div></article>
+      <article class="card"><canvas data-viz="graph" aria-hidden="true"></canvas><div class="card__b"><p class="tag">University of Hull · 2026 · Illustration</p><h3>Retrieval that follows the graph</h3><p>GNN-Enhanced RAG: structured retrieval by neural graph traversal, with K. Htut and B. K. Mishra. CCIS, Springer.</p></div></article>
+      <article class="card"><canvas data-viz="records" aria-hidden="true"></canvas><div class="card__b"><p class="tag">With South West Yorkshire Partnership NHS FT · Under review</p><h3>Risk, read from NHS records</h3><p>First author: machine learning on 538 anonymised NHS mental-health records with XGBoost, SHAP and mixed-effects models. Under review at Archives of Suicide Research.</p><p class="figs"><span><b>538</b> records, one dot each</span></p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PAPERS · light chapter, iris reveal -->
+<section class="scene papers" id="papers">
+  <div class="wrap">
+    <div class="papers__head"><h2 class="h2" data-lines>Papers</h2><p class="note">First author on 12 of these 13. <a class="lnk" style="text-decoration-color:rgba(18,19,17,.3)" href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">All on Google Scholar</a>.</p></div>
+    <div class="filters" id="pfilter" role="group" aria-label="Filter papers">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="journals" aria-pressed="false">Journals</button>
+      <button type="button" data-f="conf" aria-pressed="false">Conferences and workshops</button>
+      <button type="button" data-f="preprints" aria-pressed="false">Preprints and under review</button>
+      <button type="button" data-f="earlier" aria-pressed="false">Earlier</button>
+    </div>
+    <div class="pg" data-cat="journals"><h3>Journals</h3>
+      <p class="pr"><a href="https://doi.org/10.1038/s41746-024-01160-2" rel="noopener">Estimating the household secondary attack rate and serial interval of COVID-19 using social media</a><span class="v">npj Digital Medicine</span><span class="y">2024</span></p>
+      <p class="pr"><a href="https://doi.org/10.1016/j.eswa.2022.117338" rel="noopener">AI-based Twitter framework for assessing the involvement of government schemes in electoral campaigns</a><span class="v">Expert Systems with Applications</span><span class="y">2022</span></p>
+      <p class="pr"><a href="https://doi.org/10.1145/3490503" rel="noopener">A Twitter framework to assess the effectiveness of Indian government campaign</a><span class="v">ACM TALLIP</span><span class="y">2022</span></p>
+      <p class="pr"><a href="https://doi.org/10.1109/ACCESS.2020.3007004" rel="noopener">An approximate model for event detection from Twitter data</a><span class="v">IEEE Access</span><span class="y">2020</span></p>
+    </div>
+    <div class="pg" data-cat="conf"><h3>Conferences and workshops</h3>
+      <p class="pr"><a href="https://doi.org/10.1007/978-3-032-27120-4_18" rel="noopener">GNN-Enhanced RAG: structured retrieval via neural graph traversal for knowledge-augmented generation</a><span class="v">CCIS, Springer</span><span class="y">2026</span></p>
+      <p class="pr"><a href="https://doi.org/10.1109/BigData50022.2020.9378250" rel="noopener">An unsupervised misinformation detection framework to analyze the users using COVID-19 Twitter data</a><span class="v">IEEE BigData, oral</span><span class="y">2020</span></p>
+      <p class="pr"><a href="https://arxiv.org/abs/2007.06511" rel="noopener">An enhanced text classification to explore health based Indian government policy tweets</a><span class="v">DSHealth Workshop at KDD</span><span class="y">2020</span></p>
+      <p class="pr"><span>Cleanliness campaign vs sanitation related diseases: are they parallel in public perspective?</span><span class="v">epiDAMIK Workshop at KDD, London</span><span class="y">2018</span></p>
+      <p class="pr"><a href="https://doi.org/10.1007/978-3-030-11680-4_34" rel="noopener">Do public and government think similar about Indian cleanliness campaign?</a><span class="v">SIMBig, oral</span><span class="y">2018</span></p>
+    </div>
+    <div class="pg" data-cat="preprints"><h3>Preprints and under review</h3>
+      <p class="pr"><a href="https://doi.org/10.48550/arXiv.2608.22108" rel="noopener">Development and feasibility evaluation of an edge AI as medical device system for breast cancer multidisciplinary team meetings</a><span class="v">arXiv</span><span class="y">2026</span></p>
+      <p class="pr"><span>Machine learning based suicide-related risk assessment using structured NHS clinical data: a case control study</span><span class="v">Archives of Suicide Research</span><span class="y">In review</span></p>
+    </div>
+    <div class="pg" data-cat="earlier"><h3>Earlier</h3>
+      <p class="pr"><a href="https://doi.org/10.1016/j.procs.2016.06.085" rel="noopener">Optimizing frequent subgraph mining for single large graph</a><span class="v">Procedia Computer Science</span><span class="y">2016</span></p>
+      <p class="pr"><a href="https://doi.org/10.1109/ICACCA.2016.7578886" rel="noopener">Frequent subgraph mining algorithms for single large graphs: a brief survey</a><span class="v">ICACCA, IEEE</span><span class="y">2016</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CODE AND DATA -->
+<section class="sec" id="code">
+  <div class="wrap">
+    <div class="sec__head"><h2 class="h2" data-lines>Code and data</h2></div>
+    <div class="code" data-rise>
+      <div class="code__t"><h3>COVID_SAR</h3><p>Code for the npj Digital Medicine paper: tweet collection, UK geolocation, CT-BERT fine-tuning with cross-validation, and estimation of the household secondary attack rate.</p></div>
+      <a class="btn" href="https://github.com/AarzooDhiman/COVID_SAR" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT: the noise settles into one signal -->
+<section class="scene talk" id="contact">
+  <canvas class="talk__canvas" id="talkCanvas" aria-hidden="true"></canvas>
+  <div class="wrap talk__in">
+    <h2 class="disp" id="talkH" data-lines>Let’s find the signal in your data.</h2>
+    <p class="lead" data-rise>I’m looking for a research, applied or NLP scientist role in London, in health or beyond. The fastest way to know if I fit is a 20-minute call.</p>
+    <div class="talk__cta">
+      <a class="btn" id="mailBtn" href="mailto:aarzoodhiman@gmail.com?subject=Research%20scientist%20role">Email me about a role</a>
+      <a class="btn btn--ghost" href="Aarzoo_Dhiman_CV.pdf" download>Download my CV</a>
+      <button class="btn btn--ghost" type="button" data-copy="aarzoodhiman@gmail.com">Copy email</button>
+      <span class="copied" aria-live="polite"></span>
+    </div>
+    <p class="talk__links"><a class="lnk" href="https://www.linkedin.com/in/aarzoo-dhiman-0133ba158/" rel="noopener">LinkedIn</a><a class="lnk" href="https://scholar.google.com/citations?user=WH9EF-MAAAAJ" rel="noopener">Google Scholar</a><a class="lnk" href="https://github.com/AarzooDhiman" rel="noopener">GitHub</a><a class="lnk" href="https://orcid.org/0000-0002-2447-2745" rel="noopener">ORCID</a></p>
+  </div>
+  <footer class="wrap foot"><span>© 2026 Aarzoo Dhiman · aarzoodhiman@gmail.com</span><span>Privacy: no tracking and no cookies. Your motion setting is remembered only in this browser.</span><button type="button" id="motionBtn">Turn motion off</button></footer>
+</section>
+</main>
+</body>
+</html>
