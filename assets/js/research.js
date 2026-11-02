@@ -2,7 +2,7 @@
    The two stories share scrollStory() from story.js. */
 (() => {
   'use strict';
-  const { $, $$, STATIC, LITE, DESK, SIGNAL, PAPER, clamp, lerp, ease, rng, hasGSAP, addScene, kick, fit, onResize, countUp, formations, scrollStory } = window.AD;
+  const { TH, $, $$, STATIC, LITE, DESK, clamp, lerp, ease, rng, hasGSAP, addScene, kick, fit, onResize, countUp, formations, scrollStory } = window.AD;
   const barH = () => $('#bar').offsetHeight;
 
   /* ---------- FUNNEL: 1,226,509 people to one number (pinned, scrubbed) ---------- */
@@ -33,7 +33,7 @@
         F.draw(c, cur);
         const near5 = 1 - Math.min(1, Math.abs(cur - 5));
         if (near5 > 0.02) {
-          c.globalAlpha = near5; c.fillStyle = PAPER; c.font = `500 ${w >= 900 ? 15 : 13}px "Instrument Sans", sans-serif`;
+          c.globalAlpha = near5; c.fillStyle = TH.paper; c.font = `500 ${w >= 900 ? 15 : 13}px "Instrument Sans", sans-serif`;
           AUC.forEach((v, j) => c.fillText(`${AUCN[j]} · AUC ${v.toFixed(3)}`, R.x + R.w * 0.08, cy + (j - 1) * R.h * 0.24 - R.h * 0.06));
           c.globalAlpha = 1;
         }
@@ -92,7 +92,7 @@
         // overlays sit under the dots
         const tab = clamp(near(cur, 0) + near(cur, 6), 0, 1);
         if (tab > 0.02) {
-          c.strokeStyle = PAPER; c.lineWidth = 1.5; c.globalAlpha = 0.35 * tab; c.beginPath(); c.ellipse(cx, cy, hw * 0.5, hh * 0.36, 0, 0, 6.2832); c.stroke();
+          c.strokeStyle = TH.paper; c.lineWidth = 1.5; c.globalAlpha = 0.35 * tab; c.beginPath(); c.ellipse(cx, cy, hw * 0.5, hh * 0.36, 0, 0, 6.2832); c.stroke();
           const n0 = near(cur, 0);
           if (n0 > 0.02) for (let j = 0; j < 3; j++) { const ph = (((t || 1200) * 0.0004) + j / 3) % 1; c.globalAlpha = 0.28 * n0 * (1 - ph); c.beginPath(); c.ellipse(cx, cy, hw * (0.1 + 0.55 * ph), hh * (0.07 + 0.4 * ph), 0, 0, 6.2832); c.stroke(); }
         }
@@ -100,25 +100,25 @@
         const wb = clamp(1 - Math.abs(cur - 1) * 1.7, 0, 1);
         if (wb > 0.02) {
           const bw = R.w * 0.8, bx = cx - bw / 2, by = cy + R.h * 0.38, k = lerp(1, 0.756, ease(clamp((cur - 0.7) / 0.3, 0, 1)));
-          c.globalAlpha = wb; c.fillStyle = PAPER; c.font = font; c.fillText('word error rate', bx, by - 10);
+          c.globalAlpha = wb; c.fillStyle = TH.paper; c.font = font; c.fillText('word error rate', bx, by - 10);
           c.globalAlpha = 0.22 * wb; c.fillRect(bx, by, bw, 8);
-          c.globalAlpha = wb; c.fillStyle = SIGNAL; c.fillRect(bx, by, bw * k, 8);
-          c.fillStyle = PAPER; c.textAlign = 'right'; c.fillText(k < 0.999 ? `${(k * 100).toFixed(1)}%` : '100%', bx + bw, by - 10); c.textAlign = 'left';
+          c.globalAlpha = wb; c.fillStyle = TH.signal; c.fillRect(bx, by, bw * k, 8);
+          c.fillStyle = TH.paper; c.textAlign = 'right'; c.fillText(k < 0.999 ? `${(k * 100).toFixed(1)}%` : '100%', bx + bw, by - 10); c.textAlign = 'left';
         }
         const n2 = near(cur, 2);
-        if (n2 > 0.02) { c.strokeStyle = SIGNAL; c.lineWidth = 1.5; c.globalAlpha = 0.7 * n2; c.beginPath(); for (const k of near3) { c.moveTo(qx, qy); c.lineTo(pages[k][0] + R.w * 0.013, pages[k][1] + R.h * 0.04); } c.stroke(); }
+        if (n2 > 0.02) { c.strokeStyle = TH.signal; c.lineWidth = 1.5; c.globalAlpha = 0.7 * n2; c.beginPath(); for (const k of near3) { c.moveTo(qx, qy); c.lineTo(pages[k][0] + R.w * 0.013, pages[k][1] + R.h * 0.04); } c.stroke(); }
         const n3 = near(cur, 3);
         if (n3 > 0.02) {
           const x0 = cx - dw / 2, y0 = cy - dh / 2, pad = 16, rr = 22;
-          c.strokeStyle = PAPER; c.lineWidth = 2; c.globalAlpha = 0.55 * n3; c.beginPath(); c.roundRect(x0, y0, dw, dh, rr); c.stroke();
-          c.setLineDash([6, 7]); c.strokeStyle = SIGNAL; c.globalAlpha = 0.8 * n3; c.beginPath(); c.roundRect(x0 - pad, y0 - pad, dw + 2 * pad, dh + 2 * pad, rr + pad); c.stroke(); c.setLineDash([]);
+          c.strokeStyle = TH.paper; c.lineWidth = 2; c.globalAlpha = 0.55 * n3; c.beginPath(); c.roundRect(x0, y0, dw, dh, rr); c.stroke();
+          c.setLineDash([6, 7]); c.strokeStyle = TH.signal; c.globalAlpha = 0.8 * n3; c.beginPath(); c.roundRect(x0 - pad, y0 - pad, dw + 2 * pad, dh + 2 * pad, rr + pad); c.stroke(); c.setLineDash([]);
           // a packet heads for the outside world and stops at the boundary
           const kk = ((t === 0 || t === undefined ? 3000 * 0.8 : t) % 3000) / 3000, e = ease(clamp(kk / 0.55, 0, 1)), px = lerp(cx, x0 + dw + pad, e), py = cy;
-          c.globalAlpha = n3; c.fillStyle = SIGNAL; c.beginPath(); c.arc(px, py, 6, 0, 6.2832); c.fill();
-          if (kk > 0.55) { c.fillStyle = PAPER; c.font = font; c.textAlign = 'center'; c.fillText('Stopped at the boundary', cx, y0 + dh + pad + 26); c.textAlign = 'left'; }
+          c.globalAlpha = n3; c.fillStyle = TH.signal; c.beginPath(); c.arc(px, py, 6, 0, 6.2832); c.fill();
+          if (kk > 0.55) { c.fillStyle = TH.paper; c.font = font; c.textAlign = 'center'; c.fillText('Stopped at the boundary', cx, y0 + dh + pad + 26); c.textAlign = 'left'; }
         }
         const n5 = near(cur, 5);
-        if (n5 > 0.02) { c.globalAlpha = n5; c.fillStyle = PAPER; c.font = font; c.textAlign = 'center'; c.fillText('On-device MedGemma + RAG', lx, cy + 3.9 * cell2); c.fillText('Cloud chatbot baseline', rx, cy + 3.9 * cell2); c.textAlign = 'left'; }
+        if (n5 > 0.02) { c.globalAlpha = n5; c.fillStyle = TH.paper; c.font = font; c.textAlign = 'center'; c.fillText('On-device MedGemma + RAG', lx, cy + 3.9 * cell2); c.fillText('Cloud chatbot baseline', rx, cy + 3.9 * cell2); c.textAlign = 'left'; }
         c.globalAlpha = 1;
         F.draw(c, cur);
       };
@@ -152,15 +152,15 @@
       const gx = size <= 3 ? size : 3, gy = Math.ceil(size / gx), dot = Math.min(cw / (gx + 1.4), ch / (gy + 1.4)) * 0.42;
       for (let k = 0; k < 100; k++) {
         const hx = pad + (k % cols) * cw, hy = pad + ((k / cols) | 0) * ch;
-        c.fillStyle = '#1e211e'; c.beginPath(); c.roundRect ? c.roundRect(hx + cw * 0.08, hy + ch * 0.08, cw * 0.84, ch * 0.84, cw * 0.16) : c.rect(hx + cw * 0.08, hy + ch * 0.08, cw * 0.84, ch * 0.84); c.fill();
+        c.fillStyle = TH.bg3; c.beginPath(); c.roundRect ? c.roundRect(hx + cw * 0.08, hy + ch * 0.08, cw * 0.84, ch * 0.84, cw * 0.16) : c.rect(hx + cw * 0.08, hy + ch * 0.08, cw * 0.84, ch * 0.84); c.fill();
         const hm = homes[k];
         for (let j = 0; j < size; j++) {
           const px = hx + cw * 0.5 + ((j % gx) - (gx - 1) / 2) * dot * 2.6, py = hy + ch * 0.5 + (((j / gx) | 0) - (gy - 1) / 2) * dot * 2.6;
           const d = hm ? hm[j] : Infinity, lit = d <= day;
           const pop = lit && j > 0 ? clamp(1.6 - (day - d) * 0.6, 1, 1.6) : 1;
-          c.fillStyle = lit ? SIGNAL : 'rgba(241,238,230,.28)';
+          c.fillStyle = lit ? TH.signal : TH.rgba(0.28);
           c.beginPath(); c.arc(px, py, dot * pop, 0, 6.2832); c.fill();
-          if (j === 0 && hm) { c.strokeStyle = SIGNAL; c.lineWidth = 1.5; c.beginPath(); c.arc(px, py, dot * 1.7, 0, 6.2832); c.stroke(); }
+          if (j === 0 && hm) { c.strokeStyle = TH.signal; c.lineWidth = 1.5; c.beginPath(); c.arc(px, py, dot * 1.7, 0, 6.2832); c.stroke(); }
         }
       }
     };
@@ -181,7 +181,7 @@
       sphere(c, w, h, t) {
         if (!this.p) { const r = rng(5); this.p = Array.from({ length: 420 }, (_, i) => { const y = 1 - (i / 419) * 2, rr = Math.sqrt(1 - y * y), th = i * 2.39996; const x = Math.cos(th) * rr, z = Math.sin(th) * rr; const j = r() * 0.25; return [x + j * 0.2, y, z, x * 0.6 + y * 0.8 + z * 0.1 > 0 ? 1 : 0]; }); }
         const a = t * 0.00035, cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.38;
-        for (const [x, y, z, k] of this.p) { const X = x * Math.cos(a) - z * Math.sin(a), Z = x * Math.sin(a) + z * Math.cos(a); const s = 1.2 + (Z + 1) * 1.3; c.globalAlpha = 0.25 + (Z + 1) * 0.37; c.fillStyle = k ? SIGNAL : PAPER; c.fillRect(cx + X * R - s / 2, cy + y * R - s / 2, s, s); }
+        for (const [x, y, z, k] of this.p) { const X = x * Math.cos(a) - z * Math.sin(a), Z = x * Math.sin(a) + z * Math.cos(a); const s = 1.2 + (Z + 1) * 1.3; c.globalAlpha = 0.25 + (Z + 1) * 0.37; c.fillStyle = k ? TH.signal : TH.paper; c.fillRect(cx + X * R - s / 2, cy + y * R - s / 2, s, s); }
         c.globalAlpha = 1;
       },
       spikes(c, w, h, t) {
@@ -189,25 +189,25 @@
         for (let i = 0; i < n; i++) {
           const k = Math.floor(t * 0.03 / (bw + gap)) + i;
           const v = 0.12 + 0.1 * Math.abs(Math.sin(k * 1.7)) + (k % 37 === 0 ? 0.62 : k % 37 === 1 || k % 37 === 36 ? 0.3 : 0);
-          c.fillStyle = v > 0.4 ? SIGNAL : 'rgba(241,238,230,.45)';
+          c.fillStyle = v > 0.4 ? TH.signal : TH.rgba(0.45);
           c.fillRect(i * (bw + gap) - off, base - v * h * 0.8, bw, v * h * 0.8);
         }
       },
       lines(c, w, h, t) {
         const T = t * 0.0006;
         const f = (x, ph) => Math.sin(x * 0.012 + T + ph) * 0.5 + Math.sin(x * 0.027 - T * 1.3 + ph) * 0.3;
-        [[PAPER, 0, 0], [SIGNAL, 0.35, 0.12]].forEach(([col, ph, sh]) => { c.strokeStyle = col; c.lineWidth = 3; c.beginPath(); for (let x = 0; x <= w; x += 6) { const y = h * 0.5 - f(x, ph) * h * 0.3 + sh * h; x ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); });
+        [[TH.paper, 0, 0], [TH.signal, 0.35, 0.12]].forEach(([col, ph, sh]) => { c.strokeStyle = col; c.lineWidth = 3; c.beginPath(); for (let x = 0; x <= w; x += 6) { const y = h * 0.5 - f(x, ph) * h * 0.3 + sh * h; x ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); });
       },
       graph(c, w, h, t) {
         if (!this.g) { const r = rng(9); const nodes = Array.from({ length: 26 }, () => [0.08 + r() * 0.84, 0.1 + r() * 0.8]); const edges = []; nodes.forEach((a, i) => { nodes.map((b, j) => [j, (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2]).filter(([j]) => j !== i).sort((p, q) => p[1] - q[1]).slice(0, 2).forEach(([j]) => edges.push([i, j])); }); const order = [0]; const seen = new Set(order); for (let k = 0; k < order.length; k++) edges.forEach(([a, b]) => { if (a === order[k] && !seen.has(b)) { seen.add(b); order.push(b); } if (b === order[k] && !seen.has(a)) { seen.add(a); order.push(a); } }); this.g = { nodes, edges, order }; }
         const { nodes, edges, order } = this.g, hop = Math.floor((t * 0.0022) % (order.length + 6)), on = new Set(order.slice(0, hop));
         c.lineWidth = 1.5;
-        edges.forEach(([a, b]) => { c.strokeStyle = on.has(a) && on.has(b) ? SIGNAL : 'rgba(241,238,230,.18)'; c.beginPath(); c.moveTo(nodes[a][0] * w, nodes[a][1] * h); c.lineTo(nodes[b][0] * w, nodes[b][1] * h); c.stroke(); });
-        nodes.forEach(([x, y], i) => { c.fillStyle = on.has(i) ? SIGNAL : PAPER; c.beginPath(); c.arc(x * w, y * h, on.has(i) ? 6 : 4, 0, 6.2832); c.fill(); });
+        edges.forEach(([a, b]) => { c.strokeStyle = on.has(a) && on.has(b) ? TH.signal : TH.rgba(0.18); c.beginPath(); c.moveTo(nodes[a][0] * w, nodes[a][1] * h); c.lineTo(nodes[b][0] * w, nodes[b][1] * h); c.stroke(); });
+        nodes.forEach(([x, y], i) => { c.fillStyle = on.has(i) ? TH.signal : TH.paper; c.beginPath(); c.arc(x * w, y * h, on.has(i) ? 6 : 4, 0, 6.2832); c.fill(); });
       },
       records(c, w, h, t) {
         const cols = 27, rows = Math.ceil(538 / cols), cell = Math.min(w * 0.86 / cols, h * 0.84 / rows), ox = (w - cols * cell) / 2, oy = (h - rows * cell) / 2;
-        for (let i = 0; i < 538; i++) { const x = i % cols, y = (i / cols) | 0; c.globalAlpha = 0.35 + 0.5 * (0.5 + 0.5 * Math.sin(t * 0.002 - (x + y) * 0.35)); c.fillStyle = PAPER; c.beginPath(); c.arc(ox + (x + 0.5) * cell, oy + (y + 0.5) * cell, cell * 0.3, 0, 6.2832); c.fill(); }
+        for (let i = 0; i < 538; i++) { const x = i % cols, y = (i / cols) | 0; c.globalAlpha = 0.35 + 0.5 * (0.5 + 0.5 * Math.sin(t * 0.002 - (x + y) * 0.35)); c.fillStyle = TH.paper; c.beginPath(); c.arc(ox + (x + 0.5) * cell, oy + (y + 0.5) * cell, cell * 0.3, 0, 6.2832); c.fill(); }
         c.globalAlpha = 1;
       },
     };

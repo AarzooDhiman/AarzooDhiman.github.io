@@ -12,7 +12,13 @@
   const LITE = coarse || (navigator.hardwareConcurrency || 8) <= 4;
   const DESK = innerWidth >= 900;
   const DPR = Math.min(LITE ? 1.5 : 2, window.devicePixelRatio || 1);
-  const SIGNAL = '#ff5b2e', PAPER = '#f1eee6';
+  /* theme colours for canvas drawing, read from the CSS custom properties (light and dark share the same names) */
+  const TH = { paper: '', bg: '', bg2: '', bg3: '', signal: '', rgb: '', rgba: (a) => `rgba(${TH.rgb},${a})` };
+  const readTheme = () => {
+    const cs = getComputedStyle(H), g = (k) => cs.getPropertyValue(k).trim();
+    TH.paper = g('--paper'); TH.bg = g('--bg'); TH.bg2 = g('--bg2'); TH.bg3 = g('--bg3'); TH.signal = g('--signal'); TH.rgb = g('--paper-rgb').split(/\s+/).join(',');
+  };
+  readTheme();
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -60,6 +66,25 @@
     mb.textContent = STATIC ? 'Turn motion on' : 'Turn motion off';
     mb.addEventListener('click', () => { try { localStorage.setItem('ad-motion', STATIC ? 'on' : 'off'); } catch (e) { /* storage blocked */ } location.reload(); });
   }
+
+
+  /* ---------- 3b. Light and dark theme (default dark; the choice is remembered in this browser) ---------- */
+  const themeBtn = $('#themeBtn'), themeMeta = $('meta[name="theme-color"]');
+  const syncThemeUi = () => {
+    const light = H.dataset.theme === 'light';
+    if (themeBtn) { themeBtn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme'); themeBtn.setAttribute('aria-pressed', String(light)); }
+    readTheme();
+    if (themeMeta) themeMeta.setAttribute('content', TH.bg);
+  };
+  syncThemeUi();
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    const next = H.dataset.theme === 'light' ? 'dark' : 'light';
+    H.dataset.theme = next;
+    try { localStorage.setItem('ad-theme', next); } catch (e) { /* storage blocked */ }
+    syncThemeUi();
+    if (STATIC) location.reload(); // still frames are drawn once, so redraw them from scratch
+    else kick();
+  });
 
   /* ---------- 4. Smooth scroll (Lenis) wired to ScrollTrigger ---------- */
   let lenis = null;
@@ -154,7 +179,7 @@
       for (let i = 0; i < n; i++) {
         const fx = lerp(x0, x1, i / n), fy = base + (Math.sin(fx * 0.018 + t * 0.0016) * 12 + Math.sin(fx * 0.006 - t * 0.0009) * 22) * amp * Math.sin(Math.PI * i / n);
         const x = lerp(P[i * 3], fx, k), y = lerp(P[i * 3 + 1], fy, k);
-        c.globalAlpha = 0.25 + k * 0.75; c.fillStyle = k > 0.6 ? SIGNAL : PAPER; c.fillRect(x, y, 2, 2);
+        c.globalAlpha = 0.25 + k * 0.75; c.fillStyle = k > 0.6 ? TH.signal : TH.paper; c.fillRect(x, y, 2, 2);
       }
       c.globalAlpha = 1;
     };
@@ -163,7 +188,7 @@
     if (!STATIC) { addScene(sec, draw); new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { seen = true; kick(); o.disconnect(); } }, { threshold: 0.4 }).observe(sec); }
   })();
 
-  window.AD = { D, H, $, $$, STATIC, coarse, LITE, DESK, DPR, SIGNAL, PAPER, clamp, lerp, ease, expoOut, rng, hasGSAP, addScene, kick, fit, onResize, countUp, fontsReady, get lenis() { return lenis; } };
+  window.AD = { D, H, $, $$, STATIC, coarse, LITE, DESK, DPR, TH, clamp, lerp, ease, expoOut, rng, hasGSAP, addScene, kick, fit, onResize, countUp, fontsReady, get lenis() { return lenis; } };
   D.dispatchEvent(new Event('ad:ready'));
 
   fontsReady().then(() => { if (hasGSAP) ScrollTrigger.refresh(); });

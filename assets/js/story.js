@@ -4,7 +4,7 @@
      makeRenderer(w, h, still) returns draw(ctx, cur, t): paint the dots for step position `cur` (0 .. steps-1, fractional while scrubbing). */
 (() => {
   'use strict';
-  const { $, STATIC, SIGNAL, PAPER, clamp, lerp, ease, hasGSAP, addScene, kick, fit, onResize, countUp } = window.AD;
+  const { TH, $, STATIC, clamp, lerp, ease, hasGSAP, addScene, kick, fit, onResize, countUp } = window.AD;
 
   /* A set of S formations over n dots. set() records where dot i sits (and how it looks) in formation s;
      draw() morphs between neighbouring formations, each dot a little later than the last. */
@@ -14,7 +14,7 @@
     const draw = (c, cur) => {
       const a = clamp(Math.floor(cur), 0, S - 1), b = Math.min(S - 1, a + 1), f = cur - a;
       for (let col = 0; col < 2; col++) {
-        c.fillStyle = col ? SIGNAL : PAPER;
+        c.fillStyle = col ? TH.signal : TH.paper;
         for (let i = 0; i < n; i++) {
           const d = ((i * 2654435761) % 1000) / 1000 * 0.35;
           const e = ease(clamp((f - d) / 0.65, 0, 1));

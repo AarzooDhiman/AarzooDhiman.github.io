@@ -1,7 +1,7 @@
 /* Aarzoo Dhiman · Profile page: the drifting hero field, photos, and the education and experience globe. */
 (() => {
   'use strict';
-  const { $, $$, STATIC, LITE, DESK, SIGNAL, PAPER, clamp, lerp, ease, rng, hasGSAP, addScene, kick, fit, onResize, fontsReady } = window.AD;
+  const { TH, $, $$, STATIC, LITE, DESK, clamp, lerp, ease, rng, hasGSAP, addScene, kick, fit, onResize, fontsReady } = window.AD;
 
   /* photos the owner has supplied (assets/data/photos.json is written by site-source/make-images.mjs) */
   const photos = fetch('assets/data/photos.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
@@ -42,7 +42,7 @@
       const T = t * 0.00008, move = !STATIC && dt > 0;
       c.clearRect(0, 0, w, h);
       for (let pass = 0; pass < 2; pass++) {
-        c.fillStyle = pass ? SIGNAL : PAPER;
+        c.fillStyle = pass ? TH.signal : TH.paper;
         for (let i = 0; i < n; i++) {
           if ((i % 9 === 0) !== (pass === 1)) continue;
           let x = X[i], y = Y[i];
@@ -70,8 +70,9 @@
 
   photos.then((m) => {
     const hs = m.headshot, fig = $('#portrait');
-    if (hs && fig) {
-      const im = imgFor('headshot', hs, hs.alt || 'Dr Aarzoo Dhiman', '(max-width:899px) 220px, 30vw');
+    if (hs && fig && fig.firstElementChild) { const im = fig.firstElementChild; if (!im.complete) im.addEventListener('load', rebuildHero); }
+    else if (hs && fig) {
+      const im = imgFor('headshot', hs, hs.alt || 'Portrait of Dr Aarzoo Dhiman', '(max-width:899px) 220px, 30vw');
       im.loading = 'eager';
       fig.append(im); fig.hidden = false;
       const relayout = () => { rebuildHero(); if (hasGSAP) ScrollTrigger.refresh(); };
@@ -151,18 +152,18 @@
         return { x: cx + y1 * r, y: cy - z2 * r, front: x2 };
       };
       c.clearRect(0, 0, w, h);
-      c.fillStyle = '#151715';
+      c.fillStyle = TH.bg2;
       if (R > Math.max(w, h) * 6) c.fillRect(0, 0, w, h); else { c.beginPath(); c.arc(cx, cy, R, 0, 6.2832); c.fill(); }
       // graticule, only while the whole globe is in view
       const gz = clamp((3.2 - k.zoom) / 2, 0, 1);
       if (gz > 0.02) {
-        c.strokeStyle = `rgba(241,238,230,${0.07 * gz})`; c.lineWidth = 1; c.beginPath();
+        c.strokeStyle = TH.rgba(0.07 * gz); c.lineWidth = 1; c.beginPath();
         for (let la = -60; la <= 60; la += 30) { let on = false; for (let lo = -180; lo <= 180; lo += 6) { const p = proj(vec(la, lo)); if (p.front > 0) { on ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y); on = true; } else on = false; } }
         for (let lo = -180; lo < 180; lo += 30) { let on = false; for (let la = -84; la <= 84; la += 6) { const p = proj(vec(la, lo)); if (p.front > 0) { on ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y); on = true; } else on = false; } }
         c.stroke();
       }
       const dz = clamp((k.zoom - 3) / 2, 0, 1), ds = 2 * Math.pow(k.zoom, 0.17) * clamp(base / 360, 0.4, 1), m = 40;
-      c.fillStyle = PAPER;
+      c.fillStyle = TH.paper;
       const paint = (list, amul, size) => {
         for (const v of list) {
           const p = proj(v);
@@ -177,7 +178,7 @@
       c.globalAlpha = 1;
       // outlines: India (official boundary), the UK, and the two state outlines
       const outline = (list, alpha, lw) => {
-        c.strokeStyle = PAPER; c.lineWidth = lw; c.globalAlpha = alpha; c.beginPath();
+        c.strokeStyle = TH.paper; c.lineWidth = lw; c.globalAlpha = alpha; c.beginPath();
         for (const sh of list) for (const ring of sh.rings) {
           let on = false;
           for (const v of ring) { const p = proj(v); if (p.front <= 0) { on = false; continue; } on ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y); on = true; }
@@ -195,7 +196,7 @@
         // an arc whose end is off screen fades back so it never streaks across a close-up
         const away = [a.a, a.b].map((key) => { const p = proj(PV[key]); return p.front <= 0 ? 400 : Math.max(0, -p.x, p.x - w, -p.y, p.y - h); });
         c.globalAlpha = 1 - 0.82 * clamp(Math.max(...away) / 260, 0, 1);
-        c.strokeStyle = SIGNAL; c.lineWidth = 2.5; c.setLineDash(a.dash ? [6, 7] : []); c.beginPath();
+        c.strokeStyle = TH.signal; c.lineWidth = 2.5; c.setLineDash(a.dash ? [6, 7] : []); c.beginPath();
         const S = 70, mEnd = Math.round(S * ease(pr)); let started = false;
         for (let j = 0; j <= mEnd; j++) { const u = j / S, p = proj(slerp(PV[a.a], PV[a.b], u), 1 + amp * Math.sin(Math.PI * u)); if (p.front < -0.1) { started = false; continue; } started ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y); started = true; }
         c.stroke(); c.setLineDash([]); c.globalAlpha = 1;
@@ -209,8 +210,8 @@
         const p = proj(PV[key]); if (p.front <= 0 || p.x < -20 || p.x > w + 20 || p.y < -20 || p.y > h + 20) continue;
         const isF = key === focus, pulse = ((t || 0) % 2200) / 2200;
         c.globalAlpha = al;
-        if (!o.still) { c.strokeStyle = SIGNAL; c.globalAlpha = al * (1 - pulse) * 0.7; c.lineWidth = 2; c.beginPath(); c.arc(p.x, p.y, 7 + pulse * 16, 0, 6.2832); c.stroke(); c.globalAlpha = al; }
-        c.fillStyle = isF ? SIGNAL : PAPER; c.beginPath(); c.arc(p.x, p.y, isF ? 6.5 : 4.5, 0, 6.2832); c.fill();
+        if (!o.still) { c.strokeStyle = TH.signal; c.globalAlpha = al * (1 - pulse) * 0.7; c.lineWidth = 2; c.beginPath(); c.arc(p.x, p.y, 7 + pulse * 16, 0, 6.2832); c.stroke(); c.globalAlpha = al; }
+        c.fillStyle = isF ? TH.signal : TH.paper; c.beginPath(); c.arc(p.x, p.y, isF ? 6.5 : 4.5, 0, 6.2832); c.fill();
         const crowded = drawn.some((q) => Math.hypot(q.x - p.x, q.y - p.y) < 34);
         drawn.push(p);
         if (crowded) { c.globalAlpha = 1; continue; }
@@ -219,7 +220,7 @@
           const x = al2 === 'left' ? p.x + dx : al2 === 'right' ? p.x + dx - tw : p.x - tw / 2, y = p.y + dy, box = [x - 4, y - 14, x + tw + 4, y + 5];
           if (box[0] < 4 || box[2] > w - 4 || box[1] < 4 || box[3] > h - 4) continue;
           if (placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue;
-          placed.push(box); c.fillStyle = PAPER; c.textAlign = 'left'; c.fillText(name, x, y); break;
+          placed.push(box); c.fillStyle = TH.paper; c.textAlign = 'left'; c.fillText(name, x, y); break;
         }
         c.globalAlpha = 1;
       }
@@ -234,7 +235,7 @@
             const x = p.x - tw / 2, y = p.y + dy, box = [x - 4, y - 13, x + tw + 4, y + 5];
             if (box[0] < 4 || box[2] > w - 4 || box[1] < 4 || box[3] > h - 4) continue;
             if (placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue;
-            placed.push(box); c.globalAlpha = 0.75 * sz; c.lineJoin = 'round'; c.lineWidth = 4; c.strokeStyle = '#151715'; c.strokeText(sh.name, x, y); c.fillStyle = PAPER; c.fillText(sh.name, x, y); c.globalAlpha = 1; break;
+            placed.push(box); c.globalAlpha = 0.75 * sz; c.lineJoin = 'round'; c.lineWidth = 4; c.strokeStyle = TH.bg2; c.strokeText(sh.name, x, y); c.fillStyle = TH.paper; c.fillText(sh.name, x, y); c.globalAlpha = 1; break;
           }
         }
       }

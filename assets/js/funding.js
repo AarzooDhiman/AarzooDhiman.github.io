@@ -1,7 +1,7 @@
 /* Aarzoo Dhiman · Funding & talks: the year rail draws in as you scroll, the amount counts up once, filter chips re-flow the cards. */
 (() => {
   'use strict';
-  const { $, $$, STATIC, hasGSAP, countUp } = window.AD;
+  const { TH, $, $$, STATIC, hasGSAP, countUp } = window.AD;
 
   /* the rail draws in with the scroll (a still, full rail under reduced motion) */
   const rail = $('#rail');
